@@ -8,6 +8,18 @@
 
 #include "MenuStruct.h"
 
+Menu* initMenuStrut(const char *fileName){
+    FILE *pFile = fopen(fileName, "r");
+    Menu *temp=NULL;
+    char tempName[_NAME_MAX_*2] = {0};
+    int tempPrice;
+    if(pFile == NULL) return NULL;
+    while(fscanf(pFile, "%s %d",tempName,&tempPrice) != -1){
+        temp = createMenuStruct(temp, tempName, tempPrice);
+    }
+    fclose(pFile);
+    return getHeadNode(temp);
+}
 Menu* createMenuStruct(Menu* pastNode, char *name, int price){
     Menu *menu = (Menu*)malloc(sizeof(Menu));
     connectNode(pastNode, menu);
@@ -45,6 +57,15 @@ void setMenuAllData(Menu *menu, char *name, int price){
     setIndex(menu);
     setMenuNameAndPrice(menu, name, price);
 }
+void updateIndex(Menu *menu){
+    int i = 1;
+    menu = getHeadNode(menu);
+    while(menu != NULL){
+        menu -> index = i++;
+        menu = menu->next;
+    }
+}
+
 void connectNode(Menu* pastNode, Menu* presentNode){
     if(pastNode != NULL){
         pastNode -> next = presentNode;
@@ -52,15 +73,51 @@ void connectNode(Menu* pastNode, Menu* presentNode){
     }
     else{
         presentNode -> past = NULL;
-        presentNode -> next = NULL;
     }
+    presentNode -> next = NULL;
+}
+Menu* deleteMenu(Menu* menu, int index){
+    Menu *temp;
+    if(menu == NULL) {
+        printf("목록이 없습니다.");
+        return NULL;
+    }
+    if(getIndexOfNode(menu, index) == NULL){
+        printf("없는 메뉴 입니다.");
+        return menu;
+    }
+    temp = getIndexOfNode(menu, index);
+    
+    if(temp -> next != NULL && temp -> past != NULL){
+        temp -> past -> next = temp -> next;
+        temp -> next -> past = temp -> past;
+        menu = temp -> past;
+        free(temp);
+    }else if(temp -> next != NULL && temp -> past == NULL){
+        temp -> next -> past = NULL;
+        menu = temp -> next;
+        free(temp);
+    }else if(temp -> next == NULL && temp -> past != NULL){
+        temp -> past -> next = NULL;
+        menu = temp -> past;
+        free(temp);
+    }else {
+        free(temp);
+        menu = NULL;
+        temp = NULL;
+    }
+    if(menu != NULL) {
+        updateIndex(menu);
+        return getHeadNode(menu);
+    }else return NULL;
 }
 Menu* getHeadNode(Menu *menu){
     if(menu == NULL) return NULL;
     else{
         Menu *temp = menu;
-        if(temp -> past == NULL) return temp;
-        else temp = temp -> past;
+        while(temp->past != NULL){
+            temp = temp -> past;
+        }
         return temp;
     }
 }
@@ -68,8 +125,9 @@ Menu* getTailNode(Menu *menu){
     if(menu == NULL) return NULL;
     else{
         Menu *temp = menu;
-        if(temp -> next == NULL) return temp;
-        else temp = temp -> next;
+        while(temp->next != NULL){
+            temp = temp -> next;
+        }
         return temp;
     }
 }
@@ -84,17 +142,16 @@ Menu* getIndexOfNode(Menu *menu, int index){
         return temp; // index 와 일치하는 값이 없을경우 NULL 을 리턴합니다.
     }
 }
-Menu* initMenuStrut(const char *fileName){
-    FILE *pFile = fopen(fileName, "r");
-    Menu *temp=NULL;
-    char tempName[_NAME_MAX_*2] = {0};
-    int tempPrice;
-    if(pFile == NULL) return NULL;
-    while(fscanf(pFile, "%s %d",tempName,&tempPrice) != -1){
-        temp = createMenuStruct(temp, tempName, tempPrice);
+void printAllMenuList(Menu *menu){
+    menu = getHeadNode(menu);
+    if( menu == NULL) printf("메뉴가 없습니다.\n");
+    else{
+        printf("Index\t MenuName\t Price\n");
+        while (menu != NULL) {
+            printf("%d\t%s\t%d\n",menu -> index, menu -> menuName, menu -> price);
+            menu = menu->next;
+        }
     }
-    fclose(pFile);
-    return getHeadNode(temp);
 }
 void writeAllMenuList(const char *fileName, Menu *menu){
     Menu *head = getHeadNode(menu);

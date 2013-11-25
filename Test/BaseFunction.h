@@ -8,7 +8,8 @@
 
 #ifndef Test_BaseFunction_h
 #define Test_BaseFunction_h
+#include <stdio.h>
 
 int getLength(char *string);
-
+void clearBuffer();
 #endif
