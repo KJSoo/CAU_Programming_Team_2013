@@ -8,21 +8,17 @@
 
 #include "MenuStruct.h"
 
-Menu* createMenuStruct(Menu* pastNode,int index, char *name, int price){
+Menu* createMenuStruct(Menu* pastNode, char *name, int price){
     Menu *menu = (Menu*)malloc(sizeof(Menu));
     connectNode(pastNode, menu);
-    setMenuAllData(menu, index, name, price);
+    setMenuAllData(menu, name, price);
     return menu;
 }
-void setIndex(Menu *menu, int index){
-    if(index == 0){
-        if(menu -> past != NULL)
-            menu -> index = menu -> past -> index+1;
-        else
-            menu -> index = 1;
-    }
+void setIndex(Menu *menu){
+    if(menu -> past != NULL)
+        menu -> index = menu -> past -> index+1;
     else
-        menu -> index = index;
+        menu -> index = 1;
 }
 void setMenuName(Menu *menu,char *name){
     if(name == NULL) name = NULL;
@@ -45,8 +41,8 @@ void setMenuNameAndPrice(Menu *menu, char *name, int price){
     setMenuName(menu, name);
     setMenuPrice(menu,price);
 }
-void setMenuAllData(Menu *menu,int index, char *name, int price){
-    setIndex(menu, index);
+void setMenuAllData(Menu *menu, char *name, int price){
+    setIndex(menu);
     setMenuNameAndPrice(menu, name, price);
 }
 void connectNode(Menu* pastNode, Menu* presentNode){
@@ -87,4 +83,30 @@ Menu* getIndexOfNode(Menu *menu, int index){
         }
         return temp; // index 와 일치하는 값이 없을경우 NULL 을 리턴합니다.
     }
+}
+Menu* initMenuStrut(const char *fileName){
+    FILE *pFile = fopen(fileName, "r");
+    Menu *temp=NULL;
+    char tempName[_NAME_MAX_*2] = {0};
+    int tempPrice;
+    if(pFile == NULL) return NULL;
+    while(fscanf(pFile, "%s %d",tempName,&tempPrice) != -1){
+        temp = createMenuStruct(temp, tempName, tempPrice);
+    }
+    fclose(pFile);
+    return getHeadNode(temp);
+}
+void writeAllMenuList(const char *fileName, Menu *menu){
+    Menu *head = getHeadNode(menu);
+    FILE *pFile = fopen(fileName, "w");
+    while (head != NULL) {
+        fprintf(pFile, "%s %d\n",head->menuName,head->price);
+        head = head->next;
+    }
+    fclose(pFile);
+}
+void writeOneNode(const char *fileName, Menu *menu){
+    FILE *pFile = fopen(fileName, "a");
+    fprintf(pFile, "%s %d\n",menu->menuName,menu->price);
+    fclose(pFile);
 }

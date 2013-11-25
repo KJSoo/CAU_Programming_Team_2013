@@ -7,9 +7,13 @@
 //
 
 #include <stdio.h>
+#include "MenuStruct.h"
+
+#define _DEFAULT_MENU_FILE_ "menu.txt"
 
 int main(int argc, const char * argv[])
 {
-    
+    Menu *test;
+    test = initMenuStrut(_DEFAULT_MENU_FILE_);
 }
 

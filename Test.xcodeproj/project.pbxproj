@@ -69,9 +69,9 @@
 				744C45A2184355E8003EAD65 /* main.c */,
 				744C45B418435D84003EAD65 /* BaseFunction.h */,
 				744C45B218435C78003EAD65 /* BaseFunction.c */,
-				744C45A4184355E8003EAD65 /* Test.1 */,
 				744C45AB18435665003EAD65 /* MenuStruct.h */,
 				744C45B018435A87003EAD65 /* MenuStruct.c */,
+				744C45A4184355E8003EAD65 /* Test.1 */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -237,6 +237,7 @@
 				744C45AA184355E8003EAD65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
