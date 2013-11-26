@@ -10,6 +10,9 @@
 #define Test_BaseFunction_h
 #include <stdio.h>
 
+#define _DEFAULT_MENU_FILE_ "menu.txt"
+
 int getLength(char *string);
+void removeSpace(char *string);
 void clearBuffer();
 #endif

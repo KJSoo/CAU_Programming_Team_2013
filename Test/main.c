@@ -9,8 +9,6 @@
 #include <stdio.h>
 #include "MenuStruct.h"
 
-#define _DEFAULT_MENU_FILE_ "menu.txt"
-
 int showMainMenu();
 int selectMenu();
 void manageMenu();

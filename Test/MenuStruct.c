@@ -14,14 +14,17 @@ Menu* initMenuStrut(const char *fileName){
     char tempName[_NAME_MAX_*2] = {0};
     int tempPrice;
     if(pFile == NULL) return NULL;
-    while(fscanf(pFile, "%s %d",tempName,&tempPrice) != -1){
+    while(fscanf(pFile, "%[^0-9] %d",tempName,&tempPrice) != -1){
+        fgetc(pFile);
         temp = createMenuStruct(temp, tempName, tempPrice);
+        removeSpace(temp->menuName);
     }
     fclose(pFile);
     return getHeadNode(temp);
 }
 Menu* createMenuStruct(Menu* pastNode, char *name, int price){
     Menu *menu = (Menu*)malloc(sizeof(Menu));
+    menu -> sellCount = 0;
     connectNode(pastNode, menu);
     setMenuAllData(menu, name, price);
     return menu;
@@ -143,13 +146,13 @@ Menu* getIndexOfNode(Menu *menu, int index){
     }
 }
 void printAllMenuList(Menu *menu){
-    menu = getHeadNode(menu);
-    if( menu == NULL) printf("메뉴가 없습니다.\n");
+    Menu *temp = getHeadNode(menu);
+    if( temp == NULL) printf("메뉴가 없습니다.\n");
     else{
         printf("Index\t MenuName\t Price\n");
-        while (menu != NULL) {
-            printf("%d\t%s\t%d\n",menu -> index, menu -> menuName, menu -> price);
-            menu = menu->next;
+        while (temp != NULL) {
+            printf("%d\t%s\t\t%d\n",temp -> index, temp -> menuName, temp -> price);
+            temp = temp->next;
         }
     }
 }
@@ -166,4 +169,18 @@ void writeOneNode(const char *fileName, Menu *menu){
     FILE *pFile = fopen(fileName, "a");
     fprintf(pFile, "%s %d\n",menu->menuName,menu->price);
     fclose(pFile);
+}
+void writeChainMenuList(const char*fileName, Menu*menu){
+    Menu *head = getHeadNode(menu);
+    FILE *pFile = fopen(fileName, "w");
+    while (head != NULL) {
+        fprintf(pFile, "%s %d %d\n",head->menuName,head->price,head->sellCount);
+        head = head->next;
+    }
+    fclose(pFile);
+}
+void addSellCountByIndex(Menu *menu, int index, int count){
+    Menu *temp = getIndexOfNode(menu, index);
+    if(temp == NULL) return;
+    else temp -> sellCount += count;
 }

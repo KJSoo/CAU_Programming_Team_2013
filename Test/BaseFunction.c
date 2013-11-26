@@ -14,6 +14,14 @@ int getLength(char *string){
         i++;
     return i;
 }
+void removeSpace(char *string){
+    int length = getLength(string);
+    while (length > 0) {
+        if(string[length-1] == ' ') length--;
+        else break;
+    }
+    string[length] = '\0';
+}
 void clearBuffer(){
     while(getchar() != '\n');
 }

@@ -9,7 +9,7 @@
 #ifndef Test_MenuStruct_h
 #define Test_MenuStruct_h
 
-#define _NAME_MAX_ 5
+#define _NAME_MAX_ 50
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -19,6 +19,7 @@ struct MenuStruct{
     int index;
     char menuName[_NAME_MAX_];
     int price;
+    int sellCount;
     struct MenuStruct *past;
     struct MenuStruct *next;
 }typedef Menu;
@@ -47,4 +48,7 @@ void printAllMenuList(Menu *menu);
 
 void writeAllMenuList(const char *fileName, Menu *menu);
 void writeOneNode(const char *fileName, Menu *menu);
+void writeChainMenuList(const char*fileName, Menu*menu);
+
+void addSellCountByIndex(Menu *menu, int index, int count);
 #endif
