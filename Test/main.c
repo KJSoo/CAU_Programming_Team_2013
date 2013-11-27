@@ -13,11 +13,10 @@ int showMainMenu();
 int selectMenu();
 void manageMenu();
 
-Menu *menu = NULL;
 
 int main(int argc, const char * argv[])
 {
-    menu = initMenuStrut(_DEFAULT_MENU_FILE_);
+    initMenuStrut(_DEFAULT_MENU_FILE_);
     while(showMainMenu());
 }
 
@@ -43,7 +42,7 @@ int selectMenu(){
 }
 void manageMenu(){
     int select;
-    printAllMenuList(menu);
+    printAllMenuList();
     printf("\n1.메뉴 추가 2.메뉴 삭제 3.메뉴 저장 4. 돌아가기 : ");
     scanf("%d",&select);
     switch (select) {
@@ -56,7 +55,7 @@ void manageMenu(){
             scanf("%[^\n]",name);
             printf("가격 : ");
             scanf("%d",&price);
-            menu = createMenuStruct(getTailNode(menu), name, price);
+            createMenuStruct(name, price);
             manageMenu();
         }
             break;
@@ -65,12 +64,12 @@ void manageMenu(){
             int select;
             printf("삭제할 메뉴 : ");
             scanf("%d",&select);
-            menu = deleteMenu(menu,select);
+            deleteMenu(select);
             manageMenu();
         }
             break;
         case 3:
-            writeAllMenuList(_DEFAULT_MENU_FILE_, menu);
+            writeAllMenuList(_DEFAULT_MENU_FILE_);
             break;
         default:
             break;

@@ -10,24 +10,23 @@
 
 Menu *head = NULL;
 
-Menu* initMenuStrut(const char *fileName){
+void initMenuStrut(const char *fileName){
     FILE *pFile = fopen(fileName, "r");
-    Menu *temp=NULL;
     char tempName[_NAME_MAX_*2] = {0};
     int tempPrice;
-    if(pFile == NULL) return NULL;
+    if(pFile == NULL) return;
     while(fscanf(pFile, "%[^0-9] %d",tempName,&tempPrice) != -1){
         fgetc(pFile);
-        temp = createMenuStruct(temp, tempName, tempPrice);
-        removeSpace(temp->menuName);
+        head = createMenuStruct(tempName, tempPrice);
+        removeSpace(head->menuName);
     }
     fclose(pFile);
-    return getHeadNode(temp);
+    head = getHeadNode();
 }
-Menu* createMenuStruct(Menu* pastNode, char *name, int price){
+Menu* createMenuStruct(char *name, int price){
     Menu *menu = (Menu*)malloc(sizeof(Menu));
     menu -> sellCount = 0;
-    connectNode(pastNode, menu);
+    connectNode(getTailNode(), menu);
     setMenuAllData(menu, name, price);
     return menu;
 }
@@ -67,77 +66,76 @@ void connectNode(Menu* pastNode, Menu* presentNode){
     }
     else{
         presentNode -> past = NULL;
+        head = presentNode;
     }
     presentNode -> next = NULL;
 }
-Menu* deleteMenu(Menu* menu, int index){
+void deleteMenu(int index){
     Menu *temp;
-    if(menu == NULL) {
-        printf("목록이 없습니다.");
-        return NULL;
+    if(head == NULL) {
+        printf("목록이 없습니다.\n");
+        return;
     }
-    if(getIndexOfNode(menu, index) == NULL){
-        printf("없는 메뉴 입니다.");
-        return menu;
+    if(getIndexOfNode(index) == NULL){
+        printf("없는 메뉴 입니다.\n");
+        return;
     }
-    temp = getIndexOfNode(menu, index);
+    temp = getIndexOfNode(index);
     
     if(temp -> next != NULL && temp -> past != NULL){
         temp -> past -> next = temp -> next;
         temp -> next -> past = temp -> past;
-        menu = temp -> past;
+        head = temp -> past;
         free(temp);
     }else if(temp -> next != NULL && temp -> past == NULL){
         temp -> next -> past = NULL;
-        menu = temp -> next;
+        head = temp -> next;
         free(temp);
     }else if(temp -> next == NULL && temp -> past != NULL){
         temp -> past -> next = NULL;
-        menu = temp -> past;
+        head = temp -> past;
         free(temp);
     }else {
         free(temp);
-        menu = NULL;
+        head = NULL;
         temp = NULL;
     }
-    if(menu != NULL) {
-        updateIndex(menu);
-        return getHeadNode(menu);
-    }else return NULL;
+    if(head != NULL) {
+        updateIndex(head);
+        return;
+    }else return;
 }
-Menu* getHeadNode(Menu *menu){
-    if(menu == NULL) return NULL;
+Menu* getHeadNode(){
+    if(head == NULL) return NULL;
     else{
-        Menu *temp = menu;
-        while(temp->past != NULL){
-            temp = temp -> past;
+        while(head->past != NULL){
+            head = head -> past;
         }
-        return temp;
+        return head;
     }
 }
-Menu* getTailNode(Menu *menu){
-    if(menu == NULL) return NULL;
+Menu* getTailNode(){
+    if(head == NULL) return NULL;
     else{
-        Menu *temp = menu;
-        while(temp->next != NULL){
-            temp = temp -> next;
+        while(head->next != NULL){
+            head = head -> next;
         }
-        return temp;
+        return head;
     }
 }
-Menu* getIndexOfNode(Menu *menu, int index){
-    if(menu == NULL) return NULL;
+Menu* getIndexOfNode(int index){
+    if(head == NULL) return NULL;
     else{
-        Menu *temp = getHeadNode(menu); // head 부터 tail 까지 순차적 순회를 합니다.
-        while(temp != NULL){
-            if(temp -> index == index) return temp;
-            else temp = temp -> next;
+        Menu *head = getHeadNode(); // head 부터 tail 까지 순차적 순회를 합니다.
+        while(head != NULL){
+            if(head -> index == index) return head;
+            else head = head -> next;
         }
-        return temp; // index 와 일치하는 값이 없을경우 NULL 을 리턴합니다.
+        return head; // index 와 일치하는 값이 없을경우 NULL 을 리턴합니다.
     }
 }
-void printAllMenuList(Menu *menu){
-    Menu *temp = getHeadNode(menu);
+void printAllMenuList(){
+    Menu *temp = getHeadNode();
     if( temp == NULL) printf("메뉴가 없습니다.\n");
     else{
         printf("Index\t MenuName\t Price\n");
@@ -147,8 +145,8 @@ void printAllMenuList(Menu *menu){
         }
     }
 }
-void writeAllMenuList(const char *fileName, Menu *menu){
-    Menu *head = getHeadNode(menu);
+void writeAllMenuList(const char *fileName){
+    Menu *head = getHeadNode();
     FILE *pFile = fopen(fileName, "w");
     while (head != NULL) {
         fprintf(pFile, "%s %d\n",head->menuName,head->price);
@@ -156,13 +154,15 @@ void writeAllMenuList(const char *fileName, Menu *menu){
     }
     fclose(pFile);
 }
-void writeOneNode(const char *fileName, Menu *menu){
+void writeOneNode(const char *fileName, int index){
     FILE *pFile = fopen(fileName, "a");
-    fprintf(pFile, "%s %d\n",menu->menuName,menu->price);
+    Menu *menu = getIndexOfNode(index);
+    if(menu != NULL)
+        fprintf(pFile, "%s %d\n",menu->menuName,menu->price);
     fclose(pFile);
 }
-void writeChainMenuList(const char*fileName, Menu*menu){
-    Menu *head = getHeadNode(menu);
+void writeChainMenuList(const char*fileName){
+    head = getHeadNode();
     FILE *pFile = fopen(fileName, "w");
     while (head != NULL) {
         fprintf(pFile, "%s %d %d\n",head->menuName,head->price,head->sellCount);
@@ -170,8 +170,8 @@ void writeChainMenuList(const char*fileName, Menu*menu){
     }
     fclose(pFile);
 }
-void addSellCountByIndex(Menu *menu, int index, int count){
-    Menu *temp = getIndexOfNode(menu, index);
+void addSellCountByIndex(int index, int count){
+    Menu *temp = getIndexOfNode(index);
     if(temp == NULL) return;
     else temp -> sellCount += count;
 }
