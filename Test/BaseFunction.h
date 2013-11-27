@@ -11,8 +11,11 @@
 #include <stdio.h>
 
 #define _DEFAULT_MENU_FILE_ "menu.txt"
+#define _DEFAULT_CHAIN_FILE_ "chain.txt"
+#define _NAME_MAX_ 50
 
 int getLength(char *string);
 void removeSpace(char *string);
 void clearBuffer();
+void setStringName(char *setString,char *name);
 #endif

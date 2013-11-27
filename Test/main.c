@@ -44,7 +44,7 @@ int selectMenu(){
 void manageMenu(){
     int select;
     printAllMenuList(menu);
-    printf("1.메뉴 추가 2.메뉴 삭제 3.되돌아가기 : ");
+    printf("\n1.메뉴 추가 2.메뉴 삭제 3.메뉴 저장 4. 돌아가기 : ");
     scanf("%d",&select);
     switch (select) {
         case 1:
@@ -68,6 +68,9 @@ void manageMenu(){
             menu = deleteMenu(menu,select);
             manageMenu();
         }
+            break;
+        case 3:
+            writeAllMenuList(_DEFAULT_MENU_FILE_, menu);
             break;
         default:
             break;

@@ -11,6 +11,7 @@
 		744C45A5184355E8003EAD65 /* Test.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 744C45A4184355E8003EAD65 /* Test.1 */; };
 		744C45B118435A87003EAD65 /* MenuStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 744C45B018435A87003EAD65 /* MenuStruct.c */; };
 		744C45B318435C78003EAD65 /* BaseFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 744C45B218435C78003EAD65 /* BaseFunction.c */; };
+		7472FA721845F3DC001615C2 /* ChainManage.c in Sources */ = {isa = PBXBuildFile; fileRef = 7472FA711845F3DC001615C2 /* ChainManage.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		744C45B018435A87003EAD65 /* MenuStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MenuStruct.c; sourceTree = "<group>"; };
 		744C45B218435C78003EAD65 /* BaseFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaseFunction.c; sourceTree = "<group>"; };
 		744C45B418435D84003EAD65 /* BaseFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseFunction.h; sourceTree = "<group>"; };
+		7472FA701845F3D5001615C2 /* ChainManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChainManage.h; sourceTree = "<group>"; };
+		7472FA711845F3DC001615C2 /* ChainManage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ChainManage.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				744C45AB18435665003EAD65 /* MenuStruct.h */,
 				744C45B018435A87003EAD65 /* MenuStruct.c */,
 				744C45A4184355E8003EAD65 /* Test.1 */,
+				7472FA701845F3D5001615C2 /* ChainManage.h */,
+				7472FA711845F3DC001615C2 /* ChainManage.c */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			files = (
 				744C45A3184355E8003EAD65 /* main.c in Sources */,
 				744C45B318435C78003EAD65 /* BaseFunction.c in Sources */,
+				7472FA721845F3DC001615C2 /* ChainManage.c in Sources */,
 				744C45B118435A87003EAD65 /* MenuStruct.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

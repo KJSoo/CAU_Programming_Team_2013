@@ -9,8 +9,6 @@
 #ifndef Test_MenuStruct_h
 #define Test_MenuStruct_h
 
-#define _NAME_MAX_ 50
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "BaseFunction.h"
@@ -31,7 +29,7 @@ Menu* createMenuStruct(Menu* pastNode, char *name, int price); /* pastNode, inde
                                                                             name 이 없을 경우 NULL 를 줍니다.(비정상적인 상황)
                                                                             price 에 int 값을 줍니다. 없을 경우 0을 줍니다.(비정상적인 상황) */
 void setIndex(Menu *menu);
-void setMenuName(Menu *menu,char *name);
+//void setMenuName(Menu *menu,char *name);
 void setMenuPrice(Menu *menu,int price);
 void setMenuNameAndPrice(Menu *menu, char *name, int price);
 void setMenuAllData(Menu *menu, char *name, int price);

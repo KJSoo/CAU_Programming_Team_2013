@@ -8,6 +8,8 @@
 
 #include "MenuStruct.h"
 
+Menu *head = NULL;
+
 Menu* initMenuStrut(const char *fileName){
     FILE *pFile = fopen(fileName, "r");
     Menu *temp=NULL;
@@ -35,17 +37,6 @@ void setIndex(Menu *menu){
     else
         menu -> index = 1;
 }
-void setMenuName(Menu *menu,char *name){
-    if(name == NULL) name = NULL;
-    else{
-        int i;
-        int length = getLength(name);
-        for(i = 0 ; i < length && i < _NAME_MAX_-1 ; i++){
-            menu -> menuName[i] = name[i];
-        }
-        menu -> menuName[i] = '\0';
-    }
-}
 void setMenuPrice(Menu *menu,int price){
     if(price == 0)
         price = -1;
@@ -53,7 +44,7 @@ void setMenuPrice(Menu *menu,int price){
         menu -> price = price;
 }
 void setMenuNameAndPrice(Menu *menu, char *name, int price){
-    setMenuName(menu, name);
+    setStringName(menu->menuName, name);
     setMenuPrice(menu,price);
 }
 void setMenuAllData(Menu *menu, char *name, int price){
