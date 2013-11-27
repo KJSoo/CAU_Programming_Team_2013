@@ -1,9 +1,9 @@
 //
-//  MenuStruct.h
-//  Test
+//  main.c
+//  inging
 //
-//  Created by bluegg on 13. 11. 25..
-//  Copyright (c) 2013년 bluegg. All rights reserved.
+//  Created by inging on 13. 11. 25..
+//  Copyright (c) 2013년 inging. All rights reserved.
 //
 
 #ifndef Test_MenuStruct_h
@@ -23,28 +23,25 @@ struct MenuStruct{
 }typedef Menu;
 
 void initMenuStrut(const char *fileName);
-Menu* createMenuStruct(char *name, int price); /* pastNode, index, name, price 를 받습니다.
-                                                                            index 에 0을 입력하면 auto 로 index가 생깁니다.(항상 0을 넘겨도 무관)
-                                                                            name 이 없을 경우 NULL 를 줍니다.(비정상적인 상황)
-                                                                            price 에 int 값을 줍니다. 없을 경우 0을 줍니다.(비정상적인 상황) */
+Menu* createMenuStruct(char *name, int price);
 void setIndex(Menu *menu);
 void setMenuPrice(Menu *menu,int price);
 void setMenuNameAndPrice(Menu *menu, char *name, int price);
 void setMenuAllData(Menu *menu, char *name, int price);
 void updateIndex(Menu *menu);
 
-void connectNode(Menu* pastNode, Menu* presentNode);//이전 노드와 현재 노드를 연결합니다.
+void connectNode(Menu* pastNode, Menu* presentNode);
 void deleteMenu(int index);
 
-Menu* getHeadNode();                  //아무 menu 나 넘겨주면 head node 를 돌려줍니다.
-Menu* getTailNode();                  //아무 menu 나 넘겨주면 tail node 를 돌려줍니다.
-Menu* getIndexOfNode(int index);    //아무 menu 와 index 를 넘겨주면 해당 index 의 Node 를 넘겨줍니다. index 와 일치하는 노드가 없으면 NULL 을 리턴합니다.
+Menu* getHeadNode();
+Menu* getTailNode();
+Menu* getIndexOfNode(int index); // you can get node of index, if not exist return null. you must check return type.
 
-void printAllMenuList();
+void printAllMenuList();  // print All menu list.
 
 void writeAllMenuList(const char *fileName);
 void writeOneNode(const char *fileName, int index);
 void writeChainMenuList(const char*fileName);
 
-void addSellCountByIndex(int index, int count);
+void addSellCountByIndex(int index, int count); // if you give menu index number and sell count, struct menu add sellcount.
 #endif

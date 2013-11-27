@@ -1,9 +1,9 @@
 //
 //  main.c
-//  Test
+//  inging
 //
-//  Created by bluegg on 13. 11. 25..
-//  Copyright (c) 2013년 bluegg. All rights reserved.
+//  Created by inging on 13. 11. 25..
+//  Copyright (c) 2013년 inging. All rights reserved.
 //
 
 #include <stdio.h>
@@ -21,7 +21,7 @@ int main(int argc, const char * argv[])
 }
 
 int showMainMenu(){
-    printf("1.메뉴 관리 2.xxx : ");
+    printf("1.menu management 2.xxx : ");
     return selectMenu();
 }
 int selectMenu(){
@@ -43,7 +43,7 @@ int selectMenu(){
 void manageMenu(){
     int select;
     printAllMenuList();
-    printf("\n1.메뉴 추가 2.메뉴 삭제 3.메뉴 저장 4. 돌아가기 : ");
+    printf("\n1.menu add 2.menu delete 3.menu save 4. exit : ");
     scanf("%d",&select);
     switch (select) {
         case 1:
@@ -51,9 +51,9 @@ void manageMenu(){
             char name[_NAME_MAX_];
             int price;
             clearBuffer();
-            printf("메뉴 이름 : ");
+            printf("manu name : ");
             scanf("%[^\n]",name);
-            printf("가격 : ");
+            printf("price : ");
             scanf("%d",&price);
             createMenuStruct(name, price);
             manageMenu();
@@ -62,7 +62,7 @@ void manageMenu(){
         case 2:
         {
             int select;
-            printf("삭제할 메뉴 : ");
+            printf("delete menu number : ");
             scanf("%d",&select);
             deleteMenu(select);
             manageMenu();

@@ -1,9 +1,9 @@
 //
-//  MenuStruct.c
-//  Test
+//  main.c
+//  inging
 //
-//  Created by bluegg on 13. 11. 25..
-//  Copyright (c) 2013년 bluegg. All rights reserved.
+//  Created by inging on 13. 11. 25..
+//  Copyright (c) 2013년 inging. All rights reserved.
 //
 
 #include "MenuStruct.h"
@@ -73,11 +73,11 @@ void connectNode(Menu* pastNode, Menu* presentNode){
 void deleteMenu(int index){
     Menu *temp;
     if(head == NULL) {
-        printf("목록이 없습니다.\n");
+        printf("not exist menu list\n");
         return;
     }
     if(getIndexOfNode(index) == NULL){
-        printf("없는 메뉴 입니다.\n");
+        printf("no menu.\n");
         return;
     }
     temp = getIndexOfNode(index);
