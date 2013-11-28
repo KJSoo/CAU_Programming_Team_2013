@@ -146,8 +146,8 @@ void printAllMenuList(){
     }
 }
 void writeAllMenuList(const char *fileName){
+	FILE *pFile = fopen(fileName, "w");
     Menu *head = getHeadNode();
-    FILE *pFile = fopen(fileName, "w");
     while (head != NULL) {
         fprintf(pFile, "%s %d\n",head->menuName,head->price);
         head = head->next;
@@ -162,8 +162,8 @@ void writeOneNode(const char *fileName, int index){
     fclose(pFile);
 }
 void writeChainMenuList(const char*fileName){
+	FILE *pFile = fopen(fileName, "w");
     head = getHeadNode();
-    FILE *pFile = fopen(fileName, "w");
     while (head != NULL) {
         fprintf(pFile, "%s %d %d\n",head->menuName,head->price,head->sellCount);
         head = head->next;
