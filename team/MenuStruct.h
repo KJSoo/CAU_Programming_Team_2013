@@ -18,6 +18,7 @@ struct MenuStruct{
     char menuName[_NAME_MAX_];
     int price;
     int sellCount;
+	int allSellCount;
     struct MenuStruct *past;
     struct MenuStruct *next;
 }typedef Menu;

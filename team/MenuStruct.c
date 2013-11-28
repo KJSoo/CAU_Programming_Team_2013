@@ -26,6 +26,7 @@ void initMenuStrut(const char *fileName){
 Menu* createMenuStruct(char *name, int price){
     Menu *menu = (Menu*)malloc(sizeof(Menu));
     menu -> sellCount = 0;
+	menu -> allSellCount = 0;
     connectNode(getTailNode(), menu);
     setMenuAllData(menu, name, price);
     return menu;
@@ -165,7 +166,9 @@ void writeChainMenuList(const char*fileName){
 	FILE *pFile = fopen(fileName, "w");
     head = getHeadNode();
     while (head != NULL) {
-        fprintf(pFile, "%s %d %d\n",head->menuName,head->price,head->sellCount);
+        fprintf(pFile, "%s %d %d\n",head->menuName,head->price,head->allSellCount);
+		head -> allSellCount += head -> sellCount;
+		head -> sellCount = 0;
         head = head->next;
     }
     fclose(pFile);
