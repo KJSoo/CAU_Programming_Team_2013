@@ -169,6 +169,7 @@ void writeChainMenuList(const char*fileName){
         fprintf(pFile, "%s %d %d\n",head->menuName,head->price,head->allSellCount);
 		head -> allSellCount += head -> sellCount;
 		head -> sellCount = 0;
+		if(head -> next == NULL) break;
         head = head->next;
     }
     fclose(pFile);
