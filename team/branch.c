@@ -138,9 +138,9 @@ void printMenu(){
 	Menu *temp = getHeadNode();
 	if( temp == NULL) printf("Not menu.\n"); 
 	else{
-		printf("Index\t MenuName\t\t Price\tOrder\n"); //1count
+		printf("Index\t MenuName\t Price\tOrder\n"); //1count
 		while (temp != NULL) { // 1->n
-			printf("%d\t%-30s\t%d\t%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+			printf("  %d\t%-20s\t%d\t%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
 			temp = temp->next;
 		}
 	}
