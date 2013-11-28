@@ -12,41 +12,50 @@ void printOrderMenu();
 char name[_NAME_MAX_];
 
 int main(){
-	int a;
+	int a=1;
 	initMenuStrut(_DEFAULT_MENU_FILE_);
 	Permission();
-	printf("안녕하세요.  커피니 %s점입니다.\n",name);
-	printf("	┌───────┐\n");
-	printf("	│  1.주문      │\n");
-	printf("	│  2.주문상태  │\n");
-	printf("	│  3.매출      │\n");
-	printf("	│  4.종료      │\n");
-	printf("	└───────┘\n");
-	scanf("%d",&a);
-	system("cls");
-	switch(a){
-	case 1 : 
-		Order();
-		break;
-		system("PAUSE");
+	while(a){
+		printf("안녕하세요.  커피니 %s점입니다.\n",name);
+		printf("	┌───────┐\n");
+		printf("	│  1.주문      │\n");
+		printf("	│  2.주문상태  │\n");
+		printf("	│  3.매출      │\n");
+		printf("	│  4.종료      │\n");
+		printf("	└───────┘\n");
+		scanf("%d",&a);
 		system("cls");
-	case 2:
-		OrderState();
-		break;
-		system("PAUSE");
-		system("cls");
-	case 3:
-		allSell();
-		break;
-		system("PAUSE");
-		system("cls");
-	case 4:
-		break;
-		system("PAUSE");
-		system("cls");
-
+		switch(a){
+		case 1 : 
+			Order();
+			system("PAUSE");
+			system("cls");
+			break;
+			
+		case 2:
+			OrderState();
+			system("PAUSE");
+			system("cls");
+			break;
+			
+		case 3:
+			allSell();
+			system("PAUSE");
+			system("cls");
+			break;
+			
+		case 4:
+			a=0;
+			system("PAUSE");
+			system("cls");
+			break;
+		case 0:
+			a=-1;
+			system("PAUSE");
+			system("cls");
+			break;
+		}
 	}
-
 }
 
 void Permission(){
@@ -88,29 +97,40 @@ void Permission(){
 void Order(){
 
 	int index,count;
+	char answer;
 	int i=0,j;
+	int k=0;
 	Menu *temp;
 
 	while(1){
 		printf("\n───┬──<주문>───┬───┬───\n");
 		printMenu();
-		printf("\n번호:");
+		printf("───┴─ 주문완료(0)─┴───┴───");
+		printf("\n\n번호:");
 		scanf("%d",&index);
+		if(index==0){
+			printf("계산하시겠습니까?");
+			clearBuffer();
+			scanf("%c",&answer);
+			if(answer=='Y'||answer=='y'){
+				k = writeChainMenuList("cau.txt");
+				printf("%d원 입니다.",k);
+			}
+			else{
+				printf("Goodbye See you later.");	
+			}
+			break;
+		}
 		printf("\n갯수:");
 		scanf("%d",&count);
 		temp = getIndexOfNode(index);
 		if(temp == NULL){
-		
+			
 		}
 		addSellCountByIndex(index,count);
 		system("cls");
 		printOrderMenu();
-		//writeChainMenuList("cau.txt");
-		printf("주문완료(0)\n\n\n\n");
-		if(index==0)
-			break;
-		//음료들의 합을 출력한다.
-		printf("계산하시겠습니까?");	
+		
 		system("cls");
 	}
 }

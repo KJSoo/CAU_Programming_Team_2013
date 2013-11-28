@@ -1,44 +1,9 @@
-﻿빌드 시작: 2013-11-28 오후 4:11:02
+﻿빌드 시작: 2013-11-28 오후 4:53:31
      1>2 노드의 "C:\Users\yu-sangil\Documents\CAU_Programming_Team_2013\team\team.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\team.unsuccessfulbuild"을(를) 만들고 있습니다.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt MenuStruct.c branch.c
-         branch.c
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\basefunction.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\menustruct.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\basefunction.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(25): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(57): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(64): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(53): warning C4101: 'k' :참조되지 않은 지역 변수입니다.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(98): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(100): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(91): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(122): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-         MenuStruct.c
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\menustruct.c : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\menustruct.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\basefunction.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\menustruct.c(14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : 'fopen' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\menustruct.c(18): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253) : 'fscanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\menustruct.c(150): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : 'fopen' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\menustruct.c(159): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : 'fopen' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\menustruct.c(166): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : 'fopen' 선언을 참조하십시오.
-         코드를 생성하고 있습니다...
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(122): warning C4700: 초기화되지 않은 'index' 지역 변수를 사용했습니다.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(124): warning C4700: 초기화되지 않은 'state' 지역 변수를 사용했습니다.
+         모든 출력이 최신 상태입니다.
        ManifestResourceCompile:
          모든 출력이 최신 상태입니다.
        Link:
@@ -47,6 +12,7 @@
          Debug\branch.obj
          Debug\ChainManage.obj
          Debug\MenuStruct.obj
+         LINK : C:\Users\yu-sangil\Documents\CAU_Programming_Team_2013\Debug\team.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
        Manifest:
          c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\team.exe.embed.manifest" /manifest Debug\team.exe.intermediate.manifest
          모든 출력이 최신 상태입니다.
@@ -60,4 +26,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:01.55
+경과 시간: 00:00:00.54
