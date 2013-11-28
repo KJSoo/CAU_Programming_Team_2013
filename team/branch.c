@@ -86,25 +86,28 @@ void Permission(){
 
 void Order(){
 
-	int Coffee[100]={0};
+	int index,count[100];
 	int i=0,j;
+	Menu *temp = getHeadNode();
 
-	printf("\n────<주문>────\n");
+	printf("\n───┬──<주문>──┬───┬───\n");
 	initMenuStrut(_DEFAULT_MENU_FILE_);
 	printMenu();
 	while(1){
 		i++;
 		printf("\n번호:");
-		scanf("%d",Coffee[i]);//주문받은 음료 번호
+		scanf("%d",temp->index);
 		printf("\n갯수:");
-		// 갯수 바꾸기
+		scanf("%d",temp->sellCount);
+		temp = temp->next;
 		system("cls");
 		for(j=0;j<=i;j++){
-			//메뉴 출력
-			//선택한 음료 전부출력
+			initMenuStrut(_DEFAULT_MENU_FILE_);
+			printMenu();
+		
 		}
 		printf("주문완료(0)\n\n\n\n");
-		if(Coffee[i]==0)
+		if(index==0)
 			break;
 		//음료들의 합을 출력한다.
 		printf("계산하시겠습니까?");	
@@ -138,9 +141,10 @@ void printMenu(){
 	Menu *temp = getHeadNode();
 	if( temp == NULL) printf("Not menu.\n"); 
 	else{
-		printf("Index\t MenuName\t Price\tOrder\n"); //1count
+		printf("Index │ MenuName\t│Price │Order\n"); //1count
+		printf("───┼────────┼───┼───\n");
 		while (temp != NULL) { // 1->n
-			printf("  %d\t%-20s\t%d\t%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+			printf("  %2d  │ %-12s\t│%d\t│%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
 			temp = temp->next;
 		}
 	}

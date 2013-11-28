@@ -1,4 +1,4 @@
-﻿빌드 시작: 2013-11-28 오후 3:33:02
+﻿빌드 시작: 2013-11-28 오후 3:52:33
      1>2 노드의 "C:\Users\yu-sangil\Documents\CAU_Programming_Team_2013\team\team.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\team.unsuccessfulbuild"을(를) 만들고 있습니다.
@@ -15,12 +15,16 @@
      1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(63): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
      1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(52): warning C4101: 'k' :참조되지 않은 지역 변수입니다.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(98): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(99): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(119): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(101): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(119): warning C4700: 초기화되지 않은 'index' 지역 변수를 사용했습니다.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(121): warning C4700: 초기화되지 않은 'state' 지역 변수를 사용했습니다.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(89): warning C4101: 'count' :참조되지 않은 지역 변수입니다.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(122): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(110): warning C4700: 초기화되지 않은 'index' 지역 변수를 사용했습니다.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(122): warning C4700: 초기화되지 않은 'index' 지역 변수를 사용했습니다.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\branch.c(124): warning C4700: 초기화되지 않은 'state' 지역 변수를 사용했습니다.
        ManifestResourceCompile:
          모든 출력이 최신 상태입니다.
        Link:
@@ -42,4 +46,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:01.72
+경과 시간: 00:00:01.47
