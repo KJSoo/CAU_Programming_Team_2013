@@ -36,3 +36,12 @@ void setStringName(char *setString,char *name){
         setString[i] = '\0';
     }
 }
+void changeBig(char *string){
+	int i;
+	for(i = 0 ; i < getLength(string) ; i++){
+		if(string[i] >= 'a' && string[i] <= 'z') string[i] -= 32;
+	}
+}
+int cmpString(char *string1, char *string2){
+	return 0;
+}

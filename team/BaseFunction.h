@@ -8,6 +8,9 @@
 
 #ifndef Test_BaseFunction_h
 #define Test_BaseFunction_h
+
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 #define _DEFAULT_MENU_FILE_ "menu.txt"
@@ -18,4 +21,6 @@ int getLength(char *string);
 void removeSpace(char *string);
 void clearBuffer();
 void setStringName(char *setString,char *name);
+void changeBig(char *string);
+int cmpString(char *string1, char *string2);
 #endif

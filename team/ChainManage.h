@@ -14,6 +14,15 @@
 struct chain{
     char chainName[_NAME_MAX_];
     int state;
+
+	struct chain *next;
+	struct chain *past;
 }typedef Chain;
 
+void initChainStrut(const char *fileName);
+Chain* createChainStruct(char *name, int status);
+Chain* getChainHeadNode();
+Chain* getChainTailNode();
+void connectChainNode(Chain* pastNode, Chain* presentNode);
+int getChainStatus(char *string);
 #endif

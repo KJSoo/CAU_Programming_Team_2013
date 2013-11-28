@@ -51,9 +51,9 @@ void setMenuAllData(Menu *menu, char *name, int price){
     setIndex(menu);
     setMenuNameAndPrice(menu, name, price);
 }
-void updateIndex(Menu *menu){
+void updateIndex(){
     int i = 1;
-    menu = getHeadNode(menu);
+    Menu *menu = getHeadNode();
     while(menu != NULL){
         menu -> index = i++;
         menu = menu->next;
@@ -102,7 +102,7 @@ void deleteMenu(int index){
         temp = NULL;
     }
     if(head != NULL) {
-        updateIndex(head);
+        updateIndex();
         return;
     }else return;
 }
@@ -162,17 +162,20 @@ void writeOneNode(const char *fileName, int index){
         fprintf(pFile, "%s %d\n",menu->menuName,menu->price);
     fclose(pFile);
 }
-void writeChainMenuList(const char*fileName){
+int writeChainMenuList(const char*fileName){
 	FILE *pFile = fopen(fileName, "w");
+	int amount = 0;
     head = getHeadNode();
     while (head != NULL) {
         fprintf(pFile, "%s %d %d\n",head->menuName,head->price,head->allSellCount);
+		amount += head->price * head->sellCount;
 		head -> allSellCount += head -> sellCount;
 		head -> sellCount = 0;
 		if(head -> next == NULL) break;
         head = head->next;
     }
     fclose(pFile);
+	return amount;
 }
 void addSellCountByIndex(int index, int count){
     Menu *temp = getIndexOfNode(index);

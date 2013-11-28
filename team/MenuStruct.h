@@ -9,8 +9,6 @@
 #ifndef Test_MenuStruct_h
 #define Test_MenuStruct_h
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "BaseFunction.h"
 
 struct MenuStruct{
@@ -29,7 +27,7 @@ void setIndex(Menu *menu);
 void setMenuPrice(Menu *menu,int price);
 void setMenuNameAndPrice(Menu *menu, char *name, int price);
 void setMenuAllData(Menu *menu, char *name, int price);
-void updateIndex(Menu *menu);
+void updateIndex();
 
 void connectNode(Menu* pastNode, Menu* presentNode);
 void deleteMenu(int index);
@@ -42,7 +40,7 @@ void printAllMenuList();  // print All menu list.
 
 void writeAllMenuList(const char *fileName);
 void writeOneNode(const char *fileName, int index);
-void writeChainMenuList(const char*fileName);
+int writeChainMenuList(const char*fileName);
 
 void addSellCountByIndex(int index, int count); // if you give menu index number and sell count, struct menu add sellcount.
 #endif
