@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		744C45A3184355E8003EAD65 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 744C45A2184355E8003EAD65 /* main.c */; };
-		744C45A5184355E8003EAD65 /* Test.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 744C45A4184355E8003EAD65 /* Test.1 */; };
-		744C45B118435A87003EAD65 /* MenuStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 744C45B018435A87003EAD65 /* MenuStruct.c */; };
-		744C45B318435C78003EAD65 /* BaseFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 744C45B218435C78003EAD65 /* BaseFunction.c */; };
-		7472FA721845F3DC001615C2 /* ChainManage.c in Sources */ = {isa = PBXBuildFile; fileRef = 7472FA711845F3DC001615C2 /* ChainManage.c */; };
+		7492D6D4184892E60098FE55 /* BaseFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6CC184892E60098FE55 /* BaseFunction.c */; };
+		7492D6D6184892E60098FE55 /* ChainManage.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6CF184892E60098FE55 /* ChainManage.c */; };
+		7492D6D7184892E60098FE55 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6D1184892E60098FE55 /* main.c */; };
+		7492D6D8184892E60098FE55 /* MenuStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6D2184892E60098FE55 /* MenuStruct.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,7 +20,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				744C45A5184355E8003EAD65 /* Test.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -29,14 +27,13 @@
 
 /* Begin PBXFileReference section */
 		744C459F184355E8003EAD65 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
-		744C45A2184355E8003EAD65 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		744C45A4184355E8003EAD65 /* Test.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Test.1; sourceTree = "<group>"; };
-		744C45AB18435665003EAD65 /* MenuStruct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuStruct.h; sourceTree = "<group>"; };
-		744C45B018435A87003EAD65 /* MenuStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MenuStruct.c; sourceTree = "<group>"; };
-		744C45B218435C78003EAD65 /* BaseFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaseFunction.c; sourceTree = "<group>"; };
-		744C45B418435D84003EAD65 /* BaseFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseFunction.h; sourceTree = "<group>"; };
-		7472FA701845F3D5001615C2 /* ChainManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChainManage.h; sourceTree = "<group>"; };
-		7472FA711845F3DC001615C2 /* ChainManage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ChainManage.c; sourceTree = "<group>"; };
+		7492D6CC184892E60098FE55 /* BaseFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = BaseFunction.c; path = team/BaseFunction.c; sourceTree = SOURCE_ROOT; };
+		7492D6CD184892E60098FE55 /* BaseFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseFunction.h; path = team/BaseFunction.h; sourceTree = SOURCE_ROOT; };
+		7492D6CF184892E60098FE55 /* ChainManage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ChainManage.c; path = team/ChainManage.c; sourceTree = SOURCE_ROOT; };
+		7492D6D0184892E60098FE55 /* ChainManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChainManage.h; path = team/ChainManage.h; sourceTree = SOURCE_ROOT; };
+		7492D6D1184892E60098FE55 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = team/main.c; sourceTree = SOURCE_ROOT; };
+		7492D6D2184892E60098FE55 /* MenuStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MenuStruct.c; path = team/MenuStruct.c; sourceTree = SOURCE_ROOT; };
+		7492D6D3184892E60098FE55 /* MenuStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuStruct.h; path = team/MenuStruct.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +66,13 @@
 		744C45A1184355E8003EAD65 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				744C45A2184355E8003EAD65 /* main.c */,
-				744C45B418435D84003EAD65 /* BaseFunction.h */,
-				744C45B218435C78003EAD65 /* BaseFunction.c */,
-				744C45AB18435665003EAD65 /* MenuStruct.h */,
-				744C45B018435A87003EAD65 /* MenuStruct.c */,
-				744C45A4184355E8003EAD65 /* Test.1 */,
-				7472FA701845F3D5001615C2 /* ChainManage.h */,
-				7472FA711845F3DC001615C2 /* ChainManage.c */,
+				7492D6CC184892E60098FE55 /* BaseFunction.c */,
+				7492D6CD184892E60098FE55 /* BaseFunction.h */,
+				7492D6CF184892E60098FE55 /* ChainManage.c */,
+				7492D6D0184892E60098FE55 /* ChainManage.h */,
+				7492D6D1184892E60098FE55 /* main.c */,
+				7492D6D2184892E60098FE55 /* MenuStruct.c */,
+				7492D6D3184892E60098FE55 /* MenuStruct.h */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -110,7 +106,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = bluegg;
 			};
-			buildConfigurationList = 744C459A184355E8003EAD65 /* Build configuration list for PBXProject "Test" */;
+			buildConfigurationList = 744C459A184355E8003EAD65 /* Build configuration list for PBXProject "team" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -132,10 +128,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				744C45A3184355E8003EAD65 /* main.c in Sources */,
-				744C45B318435C78003EAD65 /* BaseFunction.c in Sources */,
-				7472FA721845F3DC001615C2 /* ChainManage.c in Sources */,
-				744C45B118435A87003EAD65 /* MenuStruct.c in Sources */,
+				7492D6D8184892E60098FE55 /* MenuStruct.c in Sources */,
+				7492D6D7184892E60098FE55 /* main.c in Sources */,
+				7492D6D4184892E60098FE55 /* BaseFunction.c in Sources */,
+				7492D6D6184892E60098FE55 /* ChainManage.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +210,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
@@ -221,13 +218,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		744C459A184355E8003EAD65 /* Build configuration list for PBXProject "Test" */ = {
+		744C459A184355E8003EAD65 /* Build configuration list for PBXProject "team" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				744C45A6184355E8003EAD65 /* Debug */,

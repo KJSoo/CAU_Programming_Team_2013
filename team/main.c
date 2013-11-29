@@ -7,21 +7,23 @@
 //
 
 #include <stdio.h>
+#include "BaseFunction.h"
 #include "MenuStruct.h"
+#include "ChainManage.h"
 
 int showMainMenu();
 int selectMenu();
 void manageMenu();
-
+void manageChain();
 
 int main(int argc, const char * argv[])
 {
-    initMenuStrut(_DEFAULT_MENU_FILE_);
+    init();
     while(showMainMenu());
 }
 
 int showMainMenu(){
-    printf("1.menu management 2.xxx : ");
+    printf("1.Menu management 2.Chain manage: ");
     return selectMenu();
 }
 int selectMenu(){
@@ -30,6 +32,9 @@ int selectMenu(){
     switch (select) {
         case 1:
             manageMenu();
+            break;
+        case 2:
+            manageChain();
             break;
         case 0:
             printf("exit.");
@@ -70,6 +75,44 @@ void manageMenu(){
             break;
         case 3:
             writeAllMenuList(_DEFAULT_MENU_FILE_);
+            manageMenu();
+            break;
+        default:
+            break;
+    }
+}
+void manageChain(){
+    int select;
+    refreshChain();
+    printAllChainList();
+    printAndScan("1.chain add 2.chain permission edit 3. exit : ", &select);
+    switch (select) {
+        case 1:
+        {
+            char chainName[_NAME_MAX_]={0};
+            printf("cahin name : ");
+            scanf("%s",chainName);
+            changeBig(chainName);
+            if(getCmpChain(chainName)) printf("Already in the %s\n",chainName);
+            else {
+                createChainStruct(chainName, 2);
+                printf("Created\n");
+                clearBuffer();
+                pause();
+                writeAllChainList();
+                manageChain();
+            }
+        }
+            break;
+        case 2:
+        {
+            int index = 0;
+            int state = 0;
+            printAndScan("Index : ", &index);
+            printAndScan("State (1.요청중 2.영업중 3.거절됨) : ", &state);
+            setPermission(index, state);
+            manageChain();
+        }
             break;
         default:
             break;

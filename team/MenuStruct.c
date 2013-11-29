@@ -137,13 +137,17 @@ Menu* getIndexOfNode(int index){
 }
 void printAllMenuList(){
     Menu *temp = getHeadNode();
+    clear();
     if( temp == NULL) printf("메뉴가 없습니다.\n");
     else{
-        printf("Index\t MenuName\t Price\n");
+        printf("│───────│────────────────────────────────│───────│\n");
+        printf("│ Index │ MenuName\t\t\t │ Price │\n");
+        printf("│───────┼────────────────────────────────┼───────┼\n");
         while (temp != NULL) {
-            printf("%d\t%s\t\t%d\n",temp -> index, temp -> menuName, temp -> price);
+            printf("│%4d   │ %-31s│ %5d │\n",temp -> index, temp -> menuName, temp -> price);
             temp = temp->next;
         }
+        printf("│───────│────────────────────────────────│───────│\n");
     }
 }
 void writeAllMenuList(const char *fileName){
@@ -162,9 +166,13 @@ void writeOneNode(const char *fileName, int index){
         fprintf(pFile, "%s %d\n",menu->menuName,menu->price);
     fclose(pFile);
 }
-int writeChainMenuList(const char*fileName){
-	FILE *pFile = fopen(fileName, "w");
+int writeChainMenuList(char*fileName){
+	FILE *pFile;
 	int amount = 0;
+    char temp[50];
+    strcpy(temp,fileName);
+    strcat(temp,".txt");
+    pFile = fopen(temp, "w");
     head = getHeadNode();
     while (head != NULL) {
         fprintf(pFile, "%s %d %d\n",head->menuName,head->price,head->allSellCount);

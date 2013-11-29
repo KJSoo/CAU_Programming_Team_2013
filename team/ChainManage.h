@@ -14,15 +14,23 @@
 struct chain{
     char chainName[_NAME_MAX_];
     int state;
-
+    int index;
+    
 	struct chain *next;
 	struct chain *past;
 }typedef Chain;
 
 void initChainStrut(const char *fileName);
-Chain* createChainStruct(char *name, int status);
+Chain* createChainStruct(char *name, int state);
 Chain* getChainHeadNode();
 Chain* getChainTailNode();
+Chain* getIndexOfChainNode(int index);
 void connectChainNode(Chain* pastNode, Chain* presentNode);
-int getChainStatus(char *string);
+void setPermission(int index, int status);
+int getPermission(char *string);
+int getCmpChain(char *string);
+void printAllChainList();
+void requestChain(char *string);
+void writeAllChainList();
+void refreshChain();
 #endif

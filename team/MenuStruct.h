@@ -40,7 +40,7 @@ void printAllMenuList();  // print All menu list.
 
 void writeAllMenuList(const char *fileName);
 void writeOneNode(const char *fileName, int index);
-int writeChainMenuList(const char*fileName);
+int writeChainMenuList(char*fileName);
 
 void addSellCountByIndex(int index, int count); // if you give menu index number and sell count, struct menu add sellcount.
 #endif
