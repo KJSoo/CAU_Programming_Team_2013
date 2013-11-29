@@ -9,6 +9,7 @@ void OrderState();
 void allSell();
 void printMenu();
 void printOrderMenu();
+int getAmountMoney();
 char name[_NAME_MAX_];
 
 int main(){
@@ -19,9 +20,8 @@ int main(){
 		printf("안녕하세요.  커피니 %s점입니다.\n",name);
 		printf("	┌───────┐\n");
 		printf("	│  1.주문      │\n");
-		printf("	│  2.주문상태  │\n");
-		printf("	│  3.매출      │\n");
-		printf("	│  4.종료      │\n");
+		printf("	│  2.총매출    │\n");
+		printf("	│  3.종료      │\n");
 		printf("	└───────┘\n");
 		scanf("%d",&a);
 		system("cls");
@@ -39,12 +39,6 @@ int main(){
 			break;
 			
 		case 3:
-			allSell();
-			system("PAUSE");
-			system("cls");
-			break;
-			
-		case 4:
 			a=0;
 			system("PAUSE");
 			system("cls");
@@ -134,27 +128,11 @@ void Order(){
 		system("cls");
 	}
 }
-
-void OrderState(){
-	int index, state;
-
-	printf("바꾸고자하는 상품을 선택하십시오.");
-	scanf("%d",index);
-	printf("1.출고됨 2.상품준비중");
-	switch (state){
-	case 1:
-		printf("상품준비중입니다.");
-		break;
-	case 2:
-		printf("출고되었습니다.");
-		break;
-
-	}
-}
+void OrderState(){}
 
 void allSell(){
-	//오늘 판매한 메뉴 
-	//총합
+
+	getAmountMoney();
 }
 
 void printMenu(){
@@ -182,4 +160,14 @@ void printOrderMenu(){
 			temp = temp->next;
 		}
 	}
+}
+int getAmountMoney(){
+	int amount = 0;
+    Menu *temp = getHeadNode();
+    while (temp != NULL) {
+		amount += (temp->price * temp->allSellCount);
+		if(temp -> next == NULL) break;
+        temp = temp->next;
+    }
+	return amount;
 }
