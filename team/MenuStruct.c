@@ -106,6 +106,7 @@ void deleteMenu(int index){
         return;
     }else return;
 }
+
 Menu* getHeadNode(){
     if(head == NULL) return NULL;
     else{
@@ -115,6 +116,7 @@ Menu* getHeadNode(){
         return head;
     }
 }
+
 Menu* getTailNode(){
     if(head == NULL) return NULL;
     else{
@@ -124,6 +126,7 @@ Menu* getTailNode(){
         return head;
     }
 }
+
 Menu* getIndexOfNode(int index){
     if(head == NULL) return NULL;
     else{
@@ -135,6 +138,7 @@ Menu* getIndexOfNode(int index){
         return head; // index 와 일치하는 값이 없을경우 NULL 을 리턴합니다.
     }
 }
+
 void printAllMenuList(){
     Menu *temp = getHeadNode();
     if( temp == NULL) printf("메뉴가 없습니다.\n");
@@ -146,6 +150,7 @@ void printAllMenuList(){
         }
     }
 }
+
 void writeAllMenuList(const char *fileName){
 	FILE *pFile = fopen(fileName, "w");
     Menu *head = getHeadNode();
@@ -155,6 +160,7 @@ void writeAllMenuList(const char *fileName){
     }
     fclose(pFile);
 }
+
 void writeOneNode(const char *fileName, int index){
     FILE *pFile = fopen(fileName, "a");
     Menu *menu = getIndexOfNode(index);
@@ -162,6 +168,7 @@ void writeOneNode(const char *fileName, int index){
         fprintf(pFile, "%s %d\n",menu->menuName,menu->price);
     fclose(pFile);
 }
+
 int writeChainMenuList(const char*fileName){
 	FILE *pFile = fopen(fileName, "w");
 	int amount = 0;
