@@ -29,13 +29,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseFunction.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="ChainManage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MenuStruct.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFunction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,14 +5,15 @@
 #include "ChainManage.h"
 
 void Permission();
-void Order();
+int Order();
 void OrderState();
 void printMenu();
 void printOrderMenu();
 int getAmountMoney();
-void allsell();
+int allsell();
 char name[_NAME_MAX_];
-int i=1;
+static int p=1;
+
 
 int main(){
 	int a=1;
@@ -20,11 +21,13 @@ int main(){
 	Permission();
 	while(a){
 		printf("안녕하세요.  커피니 %s점입니다.\n",name);
-		printf("	┌───────┐\n");
-		printf("	│  1.주문      │\n");
-		printf("	│  2.총매출    │\n");
-		printf("	│  3.종료      │\n");
-		printf("	└───────┘\n");
+		printf("	┌─────────┐\n");
+		printf("	│  1.주문          │\n");
+		printf("	│  2.포인트 적립   │\n");
+		printf("	│  3.주문 확인     │\n");
+		printf("	│  4.총매출        │\n");
+		printf("	│  3.종료          │\n");
+		printf("	└─────────┘\n");
 		scanf("%d",&a);
 		system("cls");
 		switch(a){
@@ -35,13 +38,13 @@ int main(){
                 break;
                 
             case 2:
-                allsell();
+                
                 system("PAUSE");
                 system("cls");
                 break;
                 
-            case 3:
-                a=0;
+            case 4:
+                allsell();
                 system("PAUSE");
                 system("cls");
                 break;
@@ -93,34 +96,43 @@ void Permission(){
 	clear();
 }
 
-void Order(){
+int Order(){
     
-	int index,count;
+	int index,count,way;
 	char answer;
-	int k[1000]={0};
+	int k=0;
 	Menu *temp;
     
 	while(1){
         
-		printf("\n(%2d)──┬──<주문>──┬───┬───\n",i);
+		printf("\n(%2d)──┬──<주문>──┬───┬───\n",p);
 		printMenu();
 		printf("────┴ 주문완료(0)─┴───┴───");
 		printf("\n\n번호:");
 		scanf("%d",&index);
 		if(index==0){
+			printf("1.현금/카드");
+			printf("포인트");
+			scanf("%d",&way);
 			printf("계산하시겠습니까?(Y/N)");
 			clearBuffer();
 			scanf("%c",&answer);
+			switch(way){
+			case 1:
 			if(answer=='Y'||answer=='y'){
-				k[i] = writeChainMenuList("cau.txt");
-				i++;
-				printf("%d원 입니다.",k[i-1]);
-				
+				k = writeChainMenuList("cau.txt");
+				p++;
+				printf("%d원 입니다.",k);
+			return k;	
 			}
 			else{
 				printf("Goodbye See you later.");
 			}
 			break;
+		}
+			//case 2:
+				//포인트 검색
+				//포인트 차감
 		}
 		printf("\n갯수:");
 		scanf("%d",&count);
@@ -129,7 +141,7 @@ void Order(){
             
 		}
 		addSellCountByIndex(index,count);
-		system("cls");
+		system("cfor()ls");
 		printOrderMenu();
         
 		system("cls");
@@ -142,10 +154,14 @@ void Order(){
  }
  }
  */
-void allsell(const char*fileName){
-    
-	writeChainMenuList(fileName);
+int allsell(){
+    int i,allcost;
+	printAllOrderMenu();
+	for(i=1;i<p+1;i++)
+	allcost += Order();
+	return allcost;
 }
+
 void printMenu(){
 	Menu *temp = getHeadNode();
 	if( temp == NULL) printf("Not menu.\n");
@@ -186,4 +202,3 @@ void printAllOrderMenu(){
 		}
 	}
 }
-
