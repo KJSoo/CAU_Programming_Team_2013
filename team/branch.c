@@ -34,7 +34,7 @@ int main(){
 			break;
 
 		case 2:
-			//allsell();
+			allsell();
 			system("PAUSE");
 			system("cls");
 			break;
@@ -139,9 +139,9 @@ void OrderState(){
 	}
 }
 */
-void allsell(){
+void allsell(const char*fileName){
 
-	getAmountMoney();
+	writeChainMenuList(fileName);
 }
 void printMenu(){
 	Menu *temp = getHeadNode();
@@ -184,15 +184,3 @@ void printAllOrderMenu(){
 	}
 }
 
-int getAmountMoney(){
-	int amount = 0;
-	int index, count;
-	addSellCountByIndex(index,count);
-	Menu *tmp = getHeadNode();
-	while (tmp != NULL) {
-		amount += (tmp->price * tmp->allSellCount);
-		if(tmp -> next == NULL) break;
-		tmp = tmp->next;
-	}
-	return amount;
-}
