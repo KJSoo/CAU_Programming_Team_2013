@@ -15,13 +15,13 @@ int showMainMenu();
 int selectMenu();
 void manageMenu();
 void manageChain();
-
+/*
 int main(int argc, const char * argv[])
 {
     init();
     while(showMainMenu());
 }
-
+*/
 int showMainMenu(){
     printf("1.Menu management 2.Chain manage: ");
     return selectMenu();

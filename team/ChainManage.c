@@ -103,8 +103,8 @@ int getPermission(char *string){
         }
 		if(chain -> next == NULL) break;
 		chain = chain -> next;
-        writeAllChainList();
 	}
+    writeAllChainList();
     return 0;
 }
 int getCmpChain(char *string){
@@ -127,9 +127,9 @@ void printAllChainList(){
         printf("-----------------------------------------------------------------------------------------------------\n");
         while (temp != NULL) {
             printf("%4d  %-31s",temp -> index, temp -> chainName);
-            if(temp->state == 1) printf("  Request  ¦¢\n");
-            else if(temp -> state == 2) printf("  Open  ¦¢\n");
-            else if(temp -> state == 3) printf("  Reject  ¦¢\n");
+            if(temp->state == 1) printf("  Request  \n");
+            else if(temp -> state == 2) printf("  Open  \n");
+            else if(temp -> state == 3) printf("  Reject  \n");
             else printf(" non \n");
             temp = temp->next;
         }

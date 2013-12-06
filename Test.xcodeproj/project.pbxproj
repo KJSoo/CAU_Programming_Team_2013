@@ -11,6 +11,7 @@
 		7492D6D6184892E60098FE55 /* ChainManage.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6CF184892E60098FE55 /* ChainManage.c */; };
 		7492D6D7184892E60098FE55 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6D1184892E60098FE55 /* main.c */; };
 		7492D6D8184892E60098FE55 /* MenuStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6D2184892E60098FE55 /* MenuStruct.c */; };
+		E89C8B731851640600FF742D /* branch.c in Sources */ = {isa = PBXBuildFile; fileRef = E89C8B721851640600FF742D /* branch.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,7 @@
 		7492D6D1184892E60098FE55 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = team/main.c; sourceTree = SOURCE_ROOT; };
 		7492D6D2184892E60098FE55 /* MenuStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MenuStruct.c; path = team/MenuStruct.c; sourceTree = SOURCE_ROOT; };
 		7492D6D3184892E60098FE55 /* MenuStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuStruct.h; path = team/MenuStruct.h; sourceTree = SOURCE_ROOT; };
+		E89C8B721851640600FF742D /* branch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = branch.c; path = team/branch.c; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				7492D6CD184892E60098FE55 /* BaseFunction.h */,
 				7492D6CF184892E60098FE55 /* ChainManage.c */,
 				7492D6D0184892E60098FE55 /* ChainManage.h */,
+				E89C8B721851640600FF742D /* branch.c */,
 				7492D6D1184892E60098FE55 /* main.c */,
 				7492D6D2184892E60098FE55 /* MenuStruct.c */,
 				7492D6D3184892E60098FE55 /* MenuStruct.h */,
@@ -106,7 +109,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = bluegg;
 			};
-			buildConfigurationList = 744C459A184355E8003EAD65 /* Build configuration list for PBXProject "team" */;
+			buildConfigurationList = 744C459A184355E8003EAD65 /* Build configuration list for PBXProject "Test" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -129,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7492D6D8184892E60098FE55 /* MenuStruct.c in Sources */,
+				E89C8B731851640600FF742D /* branch.c in Sources */,
 				7492D6D7184892E60098FE55 /* main.c in Sources */,
 				7492D6D4184892E60098FE55 /* BaseFunction.c in Sources */,
 				7492D6D6184892E60098FE55 /* ChainManage.c in Sources */,
@@ -225,7 +229,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		744C459A184355E8003EAD65 /* Build configuration list for PBXProject "team" */ = {
+		744C459A184355E8003EAD65 /* Build configuration list for PBXProject "Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				744C45A6184355E8003EAD65 /* Debug */,

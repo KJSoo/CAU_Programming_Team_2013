@@ -19,142 +19,141 @@ int main(){
 	init();
 	Permission();
 	while(a){
-		printf("¾È³çÇÏ¼¼¿ä.  Ä¿ÇÇ´Ï %sÁ¡ÀÔ´Ï´Ù.\n",name);
-		printf("	¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
-		printf("	¦¢  1.ÁÖ¹®      ¦¢\n");
-		printf("	¦¢  2.ÃÑ¸ÅÃâ    ¦¢\n");
-		printf("	¦¢  3.Á¾·á      ¦¢\n");
-		printf("	¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+		printf("ì•ˆë…•í•˜ì„¸ìš”.  ì»¤í”¼ë‹ˆ %sì ì…ë‹ˆë‹¤.\n",name);
+		printf("	â”Œâ”€â”€â”€â”€â”€â”€â”€â”\n");
+		printf("	â”‚  1.ì£¼ë¬¸      â”‚\n");
+		printf("	â”‚  2.ì´ë§¤ì¶œ    â”‚\n");
+		printf("	â”‚  3.ì¢…ë£Œ      â”‚\n");
+		printf("	â””â”€â”€â”€â”€â”€â”€â”€â”˜\n");
 		scanf("%d",&a);
 		system("cls");
 		switch(a){
-		case 1 : 
-			Order();
-			system("PAUSE");
-			system("cls");
-			break;
-
-		case 2:
-			allsell();
-			system("PAUSE");
-			system("cls");
-			break;
-
-		case 3:
-			a=0;
-			system("PAUSE");
-			system("cls");
-			break;
-		case 0:
-			a=-1;
-			system("PAUSE");
-			system("cls");
-			break;
+            case 1 :
+                Order();
+                system("PAUSE");
+                system("cls");
+                break;
+                
+            case 2:
+                allsell();
+                system("PAUSE");
+                system("cls");
+                break;
+                
+            case 3:
+                a=0;
+                system("PAUSE");
+                system("cls");
+                break;
+            case 0:
+                a=-1;
+                system("PAUSE");
+                system("cls");
+                break;
 		}
 	}
 }
 
 void Permission(){
-	int k,i=0;
+	int i=0;
 	char YN;
 	int PWD;
-	printf("ÁöÁ¡ÀÇ ÀÌ¸§À» Àû¾îÁÖ¼¼¿ä.");
+	printf("ì§€ì ì˜ ì´ë¦„ì„ ì ì–´ì£¼ì„¸ìš”.");
 	scanf("%s",name);
 	clearBuffer();
-	system("cls");
+	clear();
 	PWD = getPermission(name);
 	while(1){
 		printAllChainList();
 		if(PWD == 0){
-			printf("¿äÃ»ÇÏ½Ã°Ú½À´Ï±î?(Y/N)");
+			printf("ìš”ì²­í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(Y/N)");
 			scanf("%c",&YN);
 			if(YN == 'Y' || YN == 'y'){
 				requestChain(name);
 				PWD = 1;
-				//½ÅÃ» ¿Ï·á
+				//ì‹ ì²­ ì™„ë£Œ
 			}
 			continue;
 		}
 		else if(PWD == 1){
 			PWD = getPermission(name);
 			if(PWD == 0) PWD = 1;
-			printf("½ÅÃ»ÇÑÁöÁ¡ : %s\n",name);
+			printf("ì‹ ì²­í•œì§€ì  : %s\n",name);
 			printf("Wait...%d\n",++i);
-			system("PAUSE");
-			system("cls");
+			pause();
+			clear();
 			continue;
 		}else if(PWD == 2){
 			break;
 		}else {
 			printf("%d",PWD);
 		}
-
+        
 	}
-	system("cls");
+	clear();
 }
 
 void Order(){
-
+    
 	int index,count;
 	char answer;
-	int j;
 	int k[1000]={0};
 	Menu *temp;
-
+    
 	while(1){
-
-		printf("\n(%2d)¦¡¦¡¦¨¦¡¦¡<ÁÖ¹®>¦¡¦¡¦¨¦¡¦¡¦¡¦¨¦¡¦¡¦¡\n",i);
+        
+		printf("\n(%2d)â”€â”€â”¬â”€â”€<ì£¼ë¬¸>â”€â”€â”¬â”€â”€â”€â”¬â”€â”€â”€\n",i);
 		printMenu();
-		printf("¦¡¦¡¦¡¦¡¦ª ÁÖ¹®¿Ï·á(0)¦¡¦ª¦¡¦¡¦¡¦ª¦¡¦¡¦¡");
-		printf("\n\n¹øÈ£:");
+		printf("â”€â”€â”€â”€â”´ ì£¼ë¬¸ì™„ë£Œ(0)â”€â”´â”€â”€â”€â”´â”€â”€â”€");
+		printf("\n\në²ˆí˜¸:");
 		scanf("%d",&index);
 		if(index==0){
-			printf("°è»êÇÏ½Ã°Ú½À´Ï±î?(Y/N)");
+			printf("ê³„ì‚°í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(Y/N)");
 			clearBuffer();
 			scanf("%c",&answer);
 			if(answer=='Y'||answer=='y'){
 				k[i] = writeChainMenuList("cau.txt");
 				i++;
-				printf("%d¿ø ÀÔ´Ï´Ù.",k);
+				printf("%dì› ì…ë‹ˆë‹¤.",k[i-1]);
 				
 			}
 			else{
-				printf("Goodbye See you later.");	
+				printf("Goodbye See you later.");
 			}
 			break;
 		}
-		printf("\n°¹¼ö:");
+		printf("\nê°¯ìˆ˜:");
 		scanf("%d",&count);
 		temp = getIndexOfNode(index);
 		if(temp == NULL){
-
+            
 		}
 		addSellCountByIndex(index,count);
 		system("cls");
 		printOrderMenu();
-
+        
 		system("cls");
 	}
 }
 /*
-void OrderState(){
-	for(j=0;j<i;j++){
-	printf();
-	}
-}
-*/
+ void OrderState(){
+ for(j=0;j<i;j++){
+ printf();
+ }
+ }
+ */
 void allsell(const char*fileName){
-
+    
 	writeChainMenuList(fileName);
 }
 void printMenu(){
 	Menu *temp = getHeadNode();
-	if( temp == NULL) printf("Not menu.\n"); 
+	if( temp == NULL) printf("Not menu.\n");
 	else{
-		printf("  Index ¦¢ MenuName\t¦¢Price ¦¢Order\n"); 
-		printf("¦¡¦¡¦¡¦¡¦«¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦«¦¡¦¡¦¡¦«¦¡¦¡¦¡\n");
-		while (temp != NULL) { 
-			printf("    %2d  ¦¢ %-12s\t¦¢%d\t¦¢%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+		printf("  Index â”‚ MenuName\tâ”‚Price â”‚Order\n");
+		printf("â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€\n");
+		while (temp != NULL) {
+			printf("    %2d  â”‚ %-12s\tâ”‚%d\tâ”‚%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
 			temp = temp->next;
 		}
 	}
@@ -162,13 +161,13 @@ void printMenu(){
 
 void printOrderMenu(){
 	Menu *temp = getHeadNode();
-	if( temp == NULL) printf("Not menu.\n"); 
+	if( temp == NULL) printf("Not menu.\n");
 	else{
-		printf("  Index ¦¢ MenuName\t¦¢Price ¦¢Order\n"); //1count
-		printf("¦¡¦¡¦¡¦¡¦«¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦«¦¡¦¡¦¡¦«¦¡¦¡¦¡\n");
+		printf("  Index â”‚ MenuName\tâ”‚Price â”‚Order\n"); //1count
+		printf("â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€\n");
 		while (temp != NULL) { // 1->n
 			if(temp -> sellCount > 0)
-				printf("    %2d  ¦¢ %-12s\t¦¢%d\t¦¢%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+				printf("    %2d  â”‚ %-12s\tâ”‚%d\tâ”‚%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
 			temp = temp->next;
 		}
 	}
@@ -178,11 +177,11 @@ void printAllOrderMenu(){
 	Menu *temp = getHeadNode();
 	if( temp == NULL) printf("Not menu.\n"); 
 	else{
-		printf("Index ¦¢ MenuName\t¦¢Price  ¦¢Order\n"); 
-		printf("¦¡¦¡¦¡¦«¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦«¦¡¦¡¦¡¦«¦¡¦¡¦¡\n");
+		printf("Index â”‚ MenuName\tâ”‚Price  â”‚Order\n"); 
+		printf("â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€\n");
 		while (temp != NULL) { 
 			if(temp -> sellCount > 0)
-				printf("  %2d  ¦¢ %-12s\t¦¢%d\t ¦¢%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+				printf("  %2d  â”‚ %-12s\tâ”‚%d\t â”‚%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
 			temp = temp->next;
 		}
 	}

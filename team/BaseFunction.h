@@ -18,7 +18,7 @@
 #define _DEFAULT_CHAIN_FILE_ "chain.txt"
 #define _NAME_MAX_ 50
 
-#define OS 1 // 1 = window 2 = os x
+#define OS 2 // 1 = window 2 = os x
 
 int getLength(char *string);
 void removeSpace(char *string);
