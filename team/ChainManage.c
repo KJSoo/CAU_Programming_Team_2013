@@ -3,7 +3,7 @@
 //  inging
 //
 //  Created by inging on 13. 11. 25..
-//  Copyright (c) 2013년 inging. All rights reserved.
+//  Copyright (c) 2013�� inging. All rights reserved.
 //
 
 #include "ChainManage.h"
@@ -15,7 +15,8 @@ void initChainStrut(const char *fileName){
     char tempName[_NAME_MAX_*2] = {0};
 	int state;
     if(pFile == NULL) return;
-    while(fscanf(pFile, "%[^0-9] %d",tempName,&state) != -1){
+    while(fscanf(pFile, "%s %d",tempName,&state) != -1){
+		if(tempName[0] == '.')break;
         fgetc(pFile);
 		changeBig(tempName);
         removeSpace(tempName);
@@ -55,12 +56,12 @@ Chain* getChainTailNode(){
 Chain* getIndexOfChainNode(int index){
     if(chain == NULL) return NULL;
     else{
-        Chain *temp = getChainHeadNode(); // head 부터 tail 까지 순차적 순회를 합니다.
+        Chain *temp = getChainHeadNode(); // head ���� tail ���� ������ ��ȸ�� �մϴ�.
         while(temp != NULL){
             if(temp -> index == index) return temp;
             else temp = temp -> next;
         }
-        return temp; // index 와 일치하는 값이 없을경우 NULL 을 리턴합니다.
+        return temp; // index �� ��ġ�ϴ� ���� ������� NULL �� �����մϴ�.
     }
 }
 void connectChainNode(Chain* pastNode, Chain* presentNode){
@@ -82,10 +83,22 @@ void setPermission(int index, int state){
     }
 }
 int getPermission(char *string){
-	chain = getChainHeadNode();
+	Chain *temp = getChainHeadNode();
+	while(temp != NULL){
+		if(temp -> next == NULL) break;
+		else{ temp = temp->next;
+			free(temp->past);
+		}
+	}
+	free(temp);
+	chain = NULL;
+	initChainStrut(_DEFAULT_CHAIN_FILE_);
 	if(chain == NULL) return 0;
 	while(1){
-        if(cmpString(string, chain->chainName)){
+		char temp[50];
+		strcpy(temp,string);
+		changeBig(temp);
+        if(cmpString(temp, chain->chainName)){
             return chain->state;
         }
 		if(chain -> next == NULL) break;
@@ -109,33 +122,37 @@ void printAllChainList(){
     clear();
     if( temp == NULL) printf("net Chain\n");
     else{
-        printf("│───────│────────────────────────────────│─────────│\n");
-        printf("│ Index │ ChainName\t\t\t │  State  │\n");
-        printf("│───────┼────────────────────────────────┼─────────┼\n");
+        printf("-----------------------------------------------------------------------------------------------------\n");
+        printf("| Index | ChainName\t\t\t |  State  |\n");
+        printf("-----------------------------------------------------------------------------------------------------\n");
         while (temp != NULL) {
             printf("%4d  %-31s",temp -> index, temp -> chainName);
-            if(temp->state == 1) printf("  요청중  │\n");
-            else if(temp -> state == 2) printf("  영업중  │\n");
-            else if(temp -> state == 3) printf("  거절됨  │\n");
-            else printf(" 없음 \n");
+            if(temp->state == 1) printf("  Request  ��\n");
+            else if(temp -> state == 2) printf("  Open  ��\n");
+            else if(temp -> state == 3) printf("  Reject  ��\n");
+            else printf(" non \n");
             temp = temp->next;
         }
-        printf("│───────│────────────────────────────────│─────────│\n");
+        printf("-----------------------------------------------------------------------------------------------------\n");
     }
 }
 void requestChain(char *string){
-    if(getCmpChain(string)) return;
-    createChainStruct(string, 1);
+	char temp[50];
+	strcpy(temp,string);
+	changeBig(temp);
+    if(getCmpChain(temp)) return;
+    createChainStruct(temp, 1);
     writeAllChainList();
 }
 void writeAllChainList(){
-    FILE *pFile = fopen(_DEFAULT_CHAIN_FILE_, "a");
+    FILE *pFile = fopen(_DEFAULT_CHAIN_FILE_, "w");
     Chain *temp = getChainHeadNode();
     while (temp != NULL) {
         fprintf(pFile, "%s %d\n",temp->chainName,temp->state);
         if(temp -> next == NULL) break;
         temp = temp->next;
     }
+	fprintf(pFile, "%s %d\n",".",0);
     fclose(pFile);
 }
 void refreshChain(){

@@ -16,7 +16,7 @@ int i=1;
 
 int main(){
 	int a=1;
-	initMenuStrut(_DEFAULT_MENU_FILE_);
+	init();
 	Permission();
 	while(a){
 		printf("안녕하세요.  커피니 %s점입니다.\n",name);
@@ -63,8 +63,8 @@ void Permission(){
 	clearBuffer();
 	system("cls");
 	PWD = getPermission(name);
-
 	while(1){
+		printAllChainList();
 		if(PWD == 0){
 			printf("요청하시겠습니까?(Y/N)");
 			scanf("%c",&YN);
@@ -85,6 +85,8 @@ void Permission(){
 			continue;
 		}else if(PWD == 2){
 			break;
+		}else {
+			printf("%d",PWD);
 		}
 
 	}
