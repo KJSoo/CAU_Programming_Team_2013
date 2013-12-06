@@ -75,7 +75,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseFunction.c" />
-    <ClCompile Include="branch.c" />
+    <ClCompile Include="bruanch.c" />
     <ClCompile Include="ChainManage.c" />
     <ClCompile Include="MenuStruct.c" />
   </ItemGroup>
