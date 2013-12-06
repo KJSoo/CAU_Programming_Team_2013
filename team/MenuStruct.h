@@ -42,4 +42,5 @@ void writeAllMenuList(const char *fileName);
 void writeOneNode(const char *fileName, int index);
 
 void addSellCountByIndex(int index, int count); // if you give menu index number and sell count, struct menu add sellcount.
+int writeChainMenuList(const char*fileName);
 #endif

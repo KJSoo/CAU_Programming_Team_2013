@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include "BaseFunction.h"
 #include "MenuStruct.h"
+#include "ChainManage.h"
 
 void Permission();
 void Order();
@@ -59,23 +60,24 @@ void Permission(){
 	int PWD;
 	printf("지점의 이름을 적어주세요.");
 	scanf("%s",name);
+	clearBuffer();
 	system("cls");
-	//PWD = getPermission(name);
-	PWD = 2;
+	PWD = getPermission(name);
+
 	while(1){
 		if(PWD == 0){
-			printf("승인요청하시겠습니까?(Y/N)");
+			printf("요청하시겠습니까?(Y/N)");
 			scanf("%c",&YN);
 			if(YN == 'Y' || YN == 'y'){
-				//requestChain(name);
+				requestChain(name);
 				PWD = 1;
 				//신청 완료
 			}
 			continue;
 		}
 		else if(PWD == 1){
-			//PWD = getPermission(name);
-			//if(PWD == 0) PWD = 1;CAU
+			PWD = getPermission(name);
+			if(PWD == 0) PWD = 1;
 			printf("신청한지점 : %s\n",name);
 			printf("Wait...%d\n",++i);
 			system("PAUSE");

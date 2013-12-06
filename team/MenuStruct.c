@@ -172,6 +172,11 @@ void writeOneNode(const char *fileName, int index){
         fprintf(pFile, "%s %d\n",menu->menuName,menu->price);
     fclose(pFile);
 }
+void addSellCountByIndex(int index, int count){
+    Menu *temp = getIndexOfNode(index);
+    if(temp == NULL) return;
+    else temp -> sellCount += count;
+}
 int writeChainMenuList(const char*fileName){
 	FILE *pFile;
 	int amount = 0;
@@ -190,9 +195,4 @@ int writeChainMenuList(const char*fileName){
     }
     fclose(pFile);
 	return amount;
-}
-void addSellCountByIndex(int index, int count){
-    Menu *temp = getIndexOfNode(index);
-    if(temp == NULL) return;
-    else temp -> sellCount += count;
 }

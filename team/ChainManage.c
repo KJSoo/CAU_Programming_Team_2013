@@ -129,7 +129,7 @@ void requestChain(char *string){
     writeAllChainList();
 }
 void writeAllChainList(){
-    FILE *pFile = fopen(_DEFAULT_CHAIN_FILE_, "w");
+    FILE *pFile = fopen(_DEFAULT_CHAIN_FILE_, "a");
     Chain *temp = getChainHeadNode();
     while (temp != NULL) {
         fprintf(pFile, "%s %d\n",temp->chainName,temp->state);
