@@ -6,11 +6,12 @@
 void Permission();
 void Order();
 void OrderState();
-void allSell();
 void printMenu();
 void printOrderMenu();
 int getAmountMoney();
+void allsell();
 char name[_NAME_MAX_];
+int i=1;
 
 int main(){
 	int a=1;
@@ -31,13 +32,13 @@ int main(){
 			system("PAUSE");
 			system("cls");
 			break;
-			
+
 		case 2:
-			OrderState();
+			allsell();
 			system("PAUSE");
 			system("cls");
 			break;
-			
+
 		case 3:
 			a=0;
 			system("PAUSE");
@@ -92,23 +93,26 @@ void Order(){
 
 	int index,count;
 	char answer;
-	int i=0,j;
-	int k=0;
+	int j;
+	int k[1000]={0};
 	Menu *temp;
 
 	while(1){
-		printf("\n───┬──<주문>───┬───┬───\n");
+
+		printf("\n(%2d)──┬──<주문>──┬───┬───\n",i);
 		printMenu();
-		printf("───┴─ 주문완료(0)─┴───┴───");
+		printf("────┴ 주문완료(0)─┴───┴───");
 		printf("\n\n번호:");
 		scanf("%d",&index);
 		if(index==0){
-			printf("계산하시겠습니까?");
+			printf("계산하시겠습니까?(Y/N)");
 			clearBuffer();
 			scanf("%c",&answer);
 			if(answer=='Y'||answer=='y'){
-				k = writeChainMenuList("cau.txt");
+				k[i] = writeChainMenuList("cau.txt");
+				i++;
 				printf("%d원 입니다.",k);
+				
 			}
 			else{
 				printf("Goodbye See you later.");	
@@ -119,30 +123,34 @@ void Order(){
 		scanf("%d",&count);
 		temp = getIndexOfNode(index);
 		if(temp == NULL){
-			
+
 		}
 		addSellCountByIndex(index,count);
 		system("cls");
 		printOrderMenu();
-		
+
 		system("cls");
 	}
 }
-void OrderState(){}
-
-void allSell(){
-
-	getAmountMoney();
+/*
+void OrderState(){
+	for(j=0;j<i;j++){
+	printf();
+	}
 }
+*/
+void allsell(const char*fileName){
 
+	writeChainMenuList(fileName);
+}
 void printMenu(){
 	Menu *temp = getHeadNode();
 	if( temp == NULL) printf("Not menu.\n"); 
 	else{
-		printf("Index │ MenuName\t│Price │Order\n"); //1count
-		printf("───┼────────┼───┼───\n");
-		while (temp != NULL) { // 1->n
-			printf("  %2d  │ %-12s\t│%d\t│%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+		printf("  Index │ MenuName\t│Price │Order\n"); 
+		printf("────┼───────┼───┼───\n");
+		while (temp != NULL) { 
+			printf("    %2d  │ %-12s\t│%d\t│%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
 			temp = temp->next;
 		}
 	}
@@ -152,22 +160,27 @@ void printOrderMenu(){
 	Menu *temp = getHeadNode();
 	if( temp == NULL) printf("Not menu.\n"); 
 	else{
-		printf("Index │ MenuName\t│Price │Order\n"); //1count
-		printf("───┼────────┼───┼───\n");
+		printf("  Index │ MenuName\t│Price │Order\n"); //1count
+		printf("────┼───────┼───┼───\n");
 		while (temp != NULL) { // 1->n
 			if(temp -> sellCount > 0)
-				printf("  %2d  │ %-12s\t│%d\t│%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+				printf("    %2d  │ %-12s\t│%d\t│%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
 			temp = temp->next;
 		}
 	}
 }
-int getAmountMoney(){
-	int amount = 0;
-    Menu *temp = getHeadNode();
-    while (temp != NULL) {
-		amount += (temp->price * temp->allSellCount);
-		if(temp -> next == NULL) break;
-        temp = temp->next;
-    }
-	return amount;
+
+void printAllOrderMenu(){
+	Menu *temp = getHeadNode();
+	if( temp == NULL) printf("Not menu.\n"); 
+	else{
+		printf("Index │ MenuName\t│Price  │Order\n"); 
+		printf("───┼───────┼───┼───\n");
+		while (temp != NULL) { 
+			if(temp -> sellCount > 0)
+				printf("  %2d  │ %-12s\t│%d\t │%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+			temp = temp->next;
+		}
+	}
 }
+
