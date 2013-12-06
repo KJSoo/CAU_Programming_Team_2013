@@ -113,7 +113,7 @@ void printAllChainList(){
         printf("│ Index │ ChainName\t\t\t │  State  │\n");
         printf("│───────┼────────────────────────────────┼─────────┼\n");
         while (temp != NULL) {
-            printf("│%4d   │ %-31s│",temp -> index, temp -> chainName);
+            printf("%4d  %-31s",temp -> index, temp -> chainName);
             if(temp->state == 1) printf("  요청중  │\n");
             else if(temp -> state == 2) printf("  영업중  │\n");
             else if(temp -> state == 3) printf("  거절됨  │\n");

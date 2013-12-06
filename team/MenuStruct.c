@@ -173,7 +173,7 @@ void writeOneNode(const char *fileName, int index){
     fclose(pFile);
 }
 int writeChainMenuList(const char*fileName){
-	FILE *pFile = fopen(fileName, "w");
+	FILE *pFile;
 	int amount = 0;
     char temp[50];
     strcpy(temp,fileName);
