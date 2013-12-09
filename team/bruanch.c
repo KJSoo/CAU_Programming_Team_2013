@@ -18,6 +18,7 @@ static int p=1;
 
 int main(){
 	int a=1;
+	char *backnum=0;
 	int allcost=0;
 	init();
 	Permission();
@@ -30,36 +31,42 @@ int main(){
 		printf("	│  3.포인트 확인   │\n");
 		printf("	│  4.회원가입      │\n");
 		printf("	│  5.총매출        │\n");
-		printf("	│  6.종료          │\n");
+		printf("	│  0.종료          │\n");
 		printf("	└─────────┘\n");
 		scanf("%d",&a);
 		system("cls");
 		switch(a){
-            case 1 :
+           case 1 ://주문
                 allcost += Order();
                 system("PAUSE");
                 system("cls");
                 break;
                 
-            case 2:
-				createNewUser();
-				//refreshUserInformation();
-                //주문확인
+			case 2://주문확인
                 system("PAUSE");
                 system("cls");
                 break;
                 
-            case 3:
-				//findUser("3333",0);
+            case 3://회원정보 확인
+				printf("찾고자하시는 회원의 전화번호 뒷자리를 적으시오. :");
+				scanf("%s",&backnum);
+				findUser(backnum,0);
+				system("PAUSE");
+                system("cls");
+                break;
+				
+			case 4://회원가입
 				printAllUser();
-				if(editUserPoint('-',3,6000) == 0)printf("fail");
-
+				createNewUser();
+				refreshUserInformation();
                 system("PAUSE");
                 system("cls");
                 break;
-            case 5:
+            
+            
+			case 5://총매출
 				printAllOrderMenu();
-                printf("지금까지의 매출 : %d원",allcost);
+                printf("\n총매출: %d",allcost);
                 system("PAUSE");
                 system("cls");
                 break;
@@ -114,8 +121,8 @@ void Permission(){
 
 int Order(){
     
-	int index,count,way=0;
-	char answer;
+	int index,count,way=0,INDEX;
+	char answer,*backnum=0;
 	int k=0;
 	Menu *temp;
     
@@ -139,23 +146,30 @@ int Order(){
 			break;
 			}
 			
-		
 			switch(way){
-			case 1:
-				k = writeChainMenuList("cau");
-				p++;
+			case 1:// 가격을 보여준다음에 회원의 번호를 입력하여 포인트 적립해준다.만약 회원정보가 없을경우 0을 눌러주면 빠져나간다.
+				k = writeChainMenuList(name);
 				printf("%d원 입니다.",k);
+				printf("찾고자하시는 회원의 전화번호 뒷자리를 적으시오. :");
+				scanf("%s", &backnum);
+				if(backnum==0)
+					break;
+				findUser(backnum,0);
+				editUserPoint('+',INDEX,k*0.05);
 				break;
 		
-			case 2:
+			case 2://회원번호를 입력하여 회원을 찾은다음에 포인트에서 깍는다.
+				printf("찾고자하시는 회원의 전화번호 뒷자리를 적으시오. :");
+				scanf("%s", &backnum);
+				findUser(backnum,0);
+				printf("적립하고자하시는 Index를 적으세요");
+				scanf("%d",INDEX);
 				k = writeChainMenuList(name);
-				p++;
 				printf("%d원 입니다.",k);
-				
-				//포인트 검색
-				//포인트 차감
+				if(editUserPoint('-',INDEX,k) == 0)printf("\n fail");
 				break;
 			}
+			p++;
 			break;
 		}
 		printf("\n갯수:");
@@ -173,16 +187,7 @@ int Order(){
 	}
 	return k;
 }
-/*
- void OrderState(){
-	 int i,j;
- for(j=0;j<i;j++){
-	
- }
- printf("");
 
- }
- */
 void printMenu(){
 	Menu *temp = getHeadNode();
 	if( temp == NULL) printf("Not menu.\n");
@@ -220,6 +225,6 @@ void printAllOrderMenu(){
 			printf("    %2d  │ %-12s\t│%d\t│%d\n",temp -> index, temp -> menuName, temp -> price,temp->allSellCount);
 			temp = temp->next;
 		}
-	printf("────┼───────┼───┼───\n");
+	printf("────┴───────┴───┴───\n");
 	}
 }

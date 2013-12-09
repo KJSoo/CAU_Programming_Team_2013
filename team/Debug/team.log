@@ -1,4 +1,4 @@
-﻿빌드 시작: 2013-12-09 오후 2:56:51
+﻿빌드 시작: 2013-12-09 오후 5:35:41
      1>2 노드의 "C:\Users\yu-sangil\Documents\CAU_Programming_Team_2013\team\team.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\team.unsuccessfulbuild"을(를) 만들고 있습니다.
@@ -12,20 +12,30 @@
      1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\basefunction.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
      1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\userinformation.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
      1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\basefunction.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(35): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(36): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(81): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(52): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(89): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(88): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(128): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(132): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(96): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
      1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(135): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
-     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(162): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(139): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(142): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(154): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(158): warning C4244: '함수' : 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(163): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(166): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(176): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
+     1>c:\users\yu-sangil\documents\cau_programming_team_2013\team\bruanch.c(158): warning C4700: 초기화되지 않은 'INDEX' 지역 변수를 사용했습니다.
        ManifestResourceCompile:
          모든 출력이 최신 상태입니다.
        Link:
@@ -48,4 +58,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:02.17
+경과 시간: 00:00:01.01

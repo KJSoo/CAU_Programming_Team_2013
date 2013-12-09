@@ -34,6 +34,7 @@ void refreshUserInformation(){
     _user = NULL;
     initUserInformation(_DEFAULT_USER_FILE_);
 }
+
 UserInformation* createUserStruct(char *name, char *phoneNumber,int dirthDay,int point){
     UserInformation *user = (UserInformation*)malloc(sizeof(UserInformation));
     if(name != NULL)
