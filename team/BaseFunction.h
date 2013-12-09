@@ -16,6 +16,7 @@
 
 #define _DEFAULT_MENU_FILE_ "menu.txt"
 #define _DEFAULT_CHAIN_FILE_ "chain.txt"
+#define _DEFAULT_USER_FILE_ "user.txt"
 #define _NAME_MAX_ 50
 
 #define OS 1 // 1 = window 2 = os x
@@ -30,4 +31,5 @@ void init();
 void clear();
 void pause();
 void printAndScan(char *string,int *value);
+int isContainString(char *firstString, char*secondString);
 #endif

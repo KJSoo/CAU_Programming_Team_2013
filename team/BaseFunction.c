@@ -9,9 +9,11 @@
 #include "BaseFunction.h"
 #include "ChainManage.h"
 #include "MenuStruct.h"
+#include "UserInformation.h"
 
 int getLength(char *string){
     int i = 0;
+    if(string == NULL) return 0;
     while(string[i] != '\0')
         i++;
     return i;
@@ -59,6 +61,7 @@ int cmpString(char *string1, char *string2){
 void init(){
     initMenuStrut(_DEFAULT_MENU_FILE_);
     initChainStrut(_DEFAULT_CHAIN_FILE_);
+    initUserInformation(_DEFAULT_USER_FILE_);
 }
 void clear(){
     if(OS == 1){
@@ -79,4 +82,21 @@ void pause(){
 void printAndScan(char *string,int *value){
     printf("%s",string);
     scanf("%d",value);
+}
+int isContainString(char *firstString, char*secondString){
+    int i,j;
+    if(firstString == NULL || secondString == NULL) return 0;
+    if(getLength(firstString) < getLength(secondString)) return 0;
+    for(i = 0 ; i < getLength(firstString) - getLength(secondString)+1 ; i++){
+        if(firstString[i] == secondString[0]){
+            for(j = 0 ; j < getLength(secondString); j++){
+                if(firstString[i+j] != secondString[j]) {
+                    j = 0;
+                    break;
+                }
+            }
+            if(j == getLength(secondString))return 1;
+        }
+    }
+    return 0;
 }

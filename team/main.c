@@ -10,20 +10,20 @@
 #include "BaseFunction.h"
 #include "MenuStruct.h"
 #include "ChainManage.h"
-
+#include "UserInformation.h"
 int showMainMenu();
 int selectMenu();
 void manageMenu();
 void manageChain();
-/*
+void manageUser();
+
 int main(int argc, const char * argv[])
 {
     init();
     while(showMainMenu());
 }
-*/
 int showMainMenu(){
-    printf("1.Menu management 2.Chain manage: ");
+    printf("1.Menu management 2.Chain management 3.User management: ");
     return selectMenu();
 }
 int selectMenu(){
@@ -35,6 +35,10 @@ int selectMenu(){
             break;
         case 2:
             manageChain();
+            break;
+        case 3:
+            manageUser();
+            refreshUserInformation();
             break;
         case 0:
             printf("exit.");
@@ -114,6 +118,31 @@ void manageChain(){
             manageChain();
         }
             break;
+        default:
+            break;
+    }
+}
+void manageUser(){
+    int select;
+    printAndScan("1.User Add 2.User Delete 3.User List 4.Find User : ",&select);
+    switch (select) {
+        case 1:
+            createNewUser();
+            break;
+        case 3:
+            printAllUser();
+            break;
+        case 4:
+        {
+            int birthDay=0;
+            char number[10]={0};
+            printf("phone number (not birthday .): ");
+            scanf("%s",number);
+            if(number[0] == '.') number[0] = '\0';
+            printf("birth day (not birthday 0): ");
+            scanf("%d",&birthDay);
+            findUser(number, birthDay);
+        }
         default:
             break;
     }
