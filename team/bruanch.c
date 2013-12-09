@@ -3,6 +3,7 @@
 #include "BaseFunction.h"
 #include "MenuStruct.h"
 #include "ChainManage.h"
+#include "UserInformation.h"
 
 void Permission();
 int Order();
@@ -27,8 +28,9 @@ int main(){
 		printf("	│  1.주문          │\n");
 		printf("	│  2.주문 확인     │\n");
 		printf("	│  3.포인트 확인   │\n");
-		printf("	│  4.총매출        │\n");
-		printf("	│  3.종료          │\n");
+		printf("	│  4.회원가입      │\n");
+		printf("	│  5.총매출        │\n");
+		printf("	│  6.종료          │\n");
 		printf("	└─────────┘\n");
 		scanf("%d",&a);
 		system("cls");
@@ -40,22 +42,29 @@ int main(){
                 break;
                 
             case 2:
+				createNewUser();
+				//refreshUserInformation();
                 //주문확인
                 system("PAUSE");
                 system("cls");
                 break;
                 
             case 3:
-                //포인트확인
+				//findUser("3333",0);
+				printAllUser();
+				if(editUserPoint('-',3,6000) == 0)printf("fail");
+
                 system("PAUSE");
                 system("cls");
                 break;
-            case 4:
+            case 5:
+				printAllOrderMenu();
                 printf("지금까지의 매출 : %d원",allcost);
                 system("PAUSE");
                 system("cls");
                 break;
-            case 0:
+            
+			case 0:
                 a=-1;
                 system("PAUSE");
                 system("cls");
@@ -133,13 +142,13 @@ int Order(){
 		
 			switch(way){
 			case 1:
-				k = writeChainMenuList("cau.txt");
+				k = writeChainMenuList("cau");
 				p++;
 				printf("%d원 입니다.",k);
 				break;
 		
 			case 2:
-				k = writeChainMenuList("cau.txt");
+				k = writeChainMenuList(name);
 				p++;
 				printf("%d원 입니다.",k);
 				
@@ -208,8 +217,7 @@ void printAllOrderMenu(){
 		printf("  Index │ MenuName\t│Price │Order\n");
 		printf("────┼───────┼───┼───\n");
 		while (temp != NULL) {
-			if(temp -> sellCount > 0)
-				printf("    %2d  │ %-12s\t│%d\t│%d\n",temp -> index, temp -> menuName, temp -> price,temp->sellCount);
+			printf("    %2d  │ %-12s\t│%d\t│%d\n",temp -> index, temp -> menuName, temp -> price,temp->allSellCount);
 			temp = temp->next;
 		}
 	printf("────┼───────┼───┼───\n");

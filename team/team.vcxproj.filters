@@ -27,6 +27,9 @@
     <ClCompile Include="bruanch.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="UserInformation.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChainManage.h">
@@ -36,6 +39,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="BaseFunction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInformation.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

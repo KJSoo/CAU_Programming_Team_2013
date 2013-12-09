@@ -78,11 +78,13 @@
     <ClCompile Include="bruanch.c" />
     <ClCompile Include="ChainManage.c" />
     <ClCompile Include="MenuStruct.c" />
+    <ClCompile Include="UserInformation.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseFunction.h" />
     <ClInclude Include="ChainManage.h" />
     <ClInclude Include="MenuStruct.h" />
+    <ClInclude Include="UserInformation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
