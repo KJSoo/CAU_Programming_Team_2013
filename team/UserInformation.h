@@ -31,4 +31,5 @@ void printAllUser();
 int editUserPoint(char variation, int index ,int point);
 void findUser(char *number,int birthDay);
 void writeAllUser();
+void createNewUser();
 #endif

@@ -22,6 +22,7 @@ void initUserInformation(const char* fileName){
     }
 }
 void refreshUserInformation(){
+    writeAllUser();
     _user = getUserHeadNode();
     if(_user == NULL);
     else
@@ -35,14 +36,28 @@ void refreshUserInformation(){
 }
 UserInformation* createUserStruct(char *name, char *phoneNumber,int dirthDay,int point){
     UserInformation *user = (UserInformation*)malloc(sizeof(UserInformation));
-    setStringName(user->name, name);
-    setStringName(user->phoneNumber, phoneNumber);
+    if(name != NULL)
+        setStringName(user->name, name);
+    if(phoneNumber != NULL)
+        setStringName(user->phoneNumber, phoneNumber);
     user->point = point;
     user->birthDay = dirthDay;
     connectUserNode(getUserTailNode(), user);
     if(user->prev == NULL) user->index = 1;
     else user->index = user->prev->index + 1;
     return user;
+}
+void createNewUser(){
+    char name[20];
+    char phoneNumber[20];
+    int birthDay;
+    printf("이름 : ");
+    scanf("%s",name);
+    printf("번호 : ");
+    scanf("%s",phoneNumber);
+    printf("생일 : ");
+    scanf("%d",&birthDay);
+    connectUserNode(getUserTailNode(), createUserStruct(name, phoneNumber, birthDay, 0));
 }
 void connectUserNode(UserInformation* prevNode, UserInformation* presentNode){
     if(prevNode != NULL){
@@ -88,7 +103,7 @@ UserInformation *getUserByIndex(int index){
 void printAllUser(){
     UserInformation *temp = getUserHeadNode();
     clear();
-    if( temp == NULL) printf("메뉴가 없습니다.\n");
+    if( temp == NULL) printf("회원이 없습니다.\n");
     else{
         while (temp != NULL) {
             printf("%d %s %s %d %d\n",temp -> index, temp -> name, temp -> phoneNumber,temp->birthDay,temp->point);
@@ -130,6 +145,8 @@ void writeAllUser(){
     UserInformation *temp = getUserHeadNode();
     while (temp != NULL) {
         fprintf(pFile, "%s %s %d %d\n",temp->name,temp->phoneNumber,temp->birthDay,temp->point);
+        if(temp->next == NULL)break;
         temp = temp->next;
     }
+    fclose(pFile);
 }
