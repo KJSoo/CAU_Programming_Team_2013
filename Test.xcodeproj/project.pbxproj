@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1404331854B0F900C9DC47 /* UserInformation.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1404321854B0F900C9DC47 /* UserInformation.c */; };
 		7492D6D4184892E60098FE55 /* BaseFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6CC184892E60098FE55 /* BaseFunction.c */; };
 		7492D6D6184892E60098FE55 /* ChainManage.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6CF184892E60098FE55 /* ChainManage.c */; };
 		7492D6D7184892E60098FE55 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6D1184892E60098FE55 /* main.c */; };
 		7492D6D8184892E60098FE55 /* MenuStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 7492D6D2184892E60098FE55 /* MenuStruct.c */; };
-		E89C8B731851640600FF742D /* branch.c in Sources */ = {isa = PBXBuildFile; fileRef = E89C8B721851640600FF742D /* branch.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A1404311854A7A500C9DC47 /* UserInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UserInformation.h; path = team/UserInformation.h; sourceTree = SOURCE_ROOT; };
+		2A1404321854B0F900C9DC47 /* UserInformation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = UserInformation.c; path = team/UserInformation.c; sourceTree = SOURCE_ROOT; };
 		744C459F184355E8003EAD65 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		7492D6CC184892E60098FE55 /* BaseFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = BaseFunction.c; path = team/BaseFunction.c; sourceTree = SOURCE_ROOT; };
 		7492D6CD184892E60098FE55 /* BaseFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseFunction.h; path = team/BaseFunction.h; sourceTree = SOURCE_ROOT; };
@@ -35,7 +37,6 @@
 		7492D6D1184892E60098FE55 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = team/main.c; sourceTree = SOURCE_ROOT; };
 		7492D6D2184892E60098FE55 /* MenuStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MenuStruct.c; path = team/MenuStruct.c; sourceTree = SOURCE_ROOT; };
 		7492D6D3184892E60098FE55 /* MenuStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuStruct.h; path = team/MenuStruct.h; sourceTree = SOURCE_ROOT; };
-		E89C8B721851640600FF742D /* branch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = branch.c; path = team/branch.c; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +73,11 @@
 				7492D6CD184892E60098FE55 /* BaseFunction.h */,
 				7492D6CF184892E60098FE55 /* ChainManage.c */,
 				7492D6D0184892E60098FE55 /* ChainManage.h */,
-				E89C8B721851640600FF742D /* branch.c */,
 				7492D6D1184892E60098FE55 /* main.c */,
 				7492D6D2184892E60098FE55 /* MenuStruct.c */,
 				7492D6D3184892E60098FE55 /* MenuStruct.h */,
+				2A1404321854B0F900C9DC47 /* UserInformation.c */,
+				2A1404311854A7A500C9DC47 /* UserInformation.h */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -132,10 +134,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7492D6D8184892E60098FE55 /* MenuStruct.c in Sources */,
-				E89C8B731851640600FF742D /* branch.c in Sources */,
 				7492D6D7184892E60098FE55 /* main.c in Sources */,
 				7492D6D4184892E60098FE55 /* BaseFunction.c in Sources */,
 				7492D6D6184892E60098FE55 /* ChainManage.c in Sources */,
+				2A1404331854B0F900C9DC47 /* UserInformation.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +175,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -205,7 +207,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -214,7 +216,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -222,7 +224,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx10.8;
 			};
 			name = Release;
 		};
