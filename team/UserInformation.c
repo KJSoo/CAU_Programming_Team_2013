@@ -3,7 +3,7 @@
 //  Test
 //
 //  Created by JiSoo Kim on 13. 12. 8..
-//  Copyright (c) 2013ë…„ bluegg. All rights reserved.
+//  Copyright (c) 2013³â bluegg. All rights reserved.
 //
 
 #include "UserInformation.h"
@@ -20,6 +20,7 @@ void initUserInformation(const char* fileName){
         fgetc(pFile);
         _user = createUserStruct(name, phoneNumber,dirthDay,point);
     }
+	_user = getUserHeadNode();
 }
 void refreshUserInformation(){
     writeAllUser();
@@ -37,6 +38,8 @@ void refreshUserInformation(){
 
 UserInformation* createUserStruct(char *name, char *phoneNumber,int dirthDay,int point){
     UserInformation *user = (UserInformation*)malloc(sizeof(UserInformation));
+	user->prev = NULL;
+	user->next = NULL;
     if(name != NULL)
         setStringName(user->name, name);
     if(phoneNumber != NULL)
@@ -52,24 +55,25 @@ void createNewUser(){
     char name[20];
     char phoneNumber[20];
     int birthDay;
-    printf("ì´ë¦„ : ");
+	printf("------ new user ------\n");
+    printf("ÀÌ¸§ : ");
     scanf("%s",name);
-    printf("ë²ˆí˜¸ : ");
+    printf("¹øÈ£ : ");
     scanf("%s",phoneNumber);
-    printf("ìƒì¼ : ");
+    printf("»ýÀÏ : ");
     scanf("%d",&birthDay);
-    connectUserNode(getUserTailNode(), createUserStruct(name, phoneNumber, birthDay, 0));
+    createUserStruct(name, phoneNumber, birthDay, 0);
 }
 void connectUserNode(UserInformation* prevNode, UserInformation* presentNode){
+	presentNode -> prev = NULL;
+	presentNode -> next = NULL;
     if(prevNode != NULL){
         prevNode -> next = presentNode;
         presentNode -> prev = prevNode;
     }
     else{
-        presentNode -> prev = NULL;
         _user = presentNode;
     }
-    presentNode -> next = NULL;
 }
 UserInformation* getUserHeadNode(){
     if(_user == NULL) return NULL;
@@ -93,21 +97,22 @@ UserInformation* getUserTailNode(){
 UserInformation *getUserByIndex(int index){
     if(_user == NULL) return NULL;
     else{
-        UserInformation *head = getUserHeadNode(); // head ë¶€í„° tail ê¹Œì§€ ìˆœì°¨ì  ìˆœíšŒë¥¼ í•©ë‹ˆë‹¤.
+        UserInformation *head = getUserHeadNode(); // head ºÎÅÍ tail ±îÁö ¼øÂ÷Àû ¼øÈ¸¸¦ ÇÕ´Ï´Ù.
         while(head != NULL){
             if(head -> index == index) return head;
             else head = head -> next;
         }
-        return head; // index ì™€ ì¼ì¹˜í•˜ëŠ” ê°’ì´ ì—†ì„ê²½ìš° NULL ì„ ë¦¬í„´í•©ë‹ˆë‹¤.
+        return head; // index ¿Í ÀÏÄ¡ÇÏ´Â °ªÀÌ ¾øÀ»°æ¿ì NULL À» ¸®ÅÏÇÕ´Ï´Ù.
     }
 }
 void printAllUser(){
-    UserInformation *temp = getUserHeadNode();
+	UserInformation *temp = getUserHeadNode();
     clear();
-    if( temp == NULL) printf("íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.\n");
+    if( temp == NULL) printf("È¸¿øÀÌ ¾ø½À´Ï´Ù.\n");
     else{
+		printf("index\tname\t\tphone\t\tbirthday\tpoint\n");
         while (temp != NULL) {
-            printf("%d %s %s %d %d\n",temp -> index, temp -> name, temp -> phoneNumber,temp->birthDay,temp->point);
+            printf("%2d\t%-10s\t%-14s\t%-10d\t%-10d\n",temp -> index, temp -> name, temp -> phoneNumber,temp->birthDay,temp->point);
             temp = temp->next;
         }
     }

@@ -178,14 +178,20 @@ void addSellCountByIndex(int index, int count){
     else temp -> sellCount += count;
 }
 int writeChainMenuList(const char*fileName){
-	FILE *pFile;
+	FILE *pFile,*orderFile;
 	int amount = 0;
-    char temp[50];
+    char temp[50],temp2[50];
     strcpy(temp,fileName);
+	strcpy(temp2,fileName);
     strcat(temp,".txt");
+	strcat(temp2,"_order.txt");
     pFile = fopen(temp, "w");
+	orderFile = fopen(temp2,"a");
     head = getHeadNode();
+	fprintf(orderFile,". 0 0\n");
     while (head != NULL) {
+		if(head->sellCount > 0)
+			fprintf(orderFile,"%s %d %d\n",head->menuName,head->price,head->sellCount);
 		amount += (head->price * head->sellCount);
 		head -> allSellCount += head -> sellCount;
 		head -> sellCount = 0;
@@ -194,5 +200,27 @@ int writeChainMenuList(const char*fileName){
         head = head->next;
     }
     fclose(pFile);
+	fclose(orderFile);
 	return amount;
+}
+void printOrder(const char *fileName){
+	FILE *orderFile;
+    char temp[50];
+    int i = 1;
+	char name[50];
+	int price,count,first = 0;
+	int amount = 0;
+	strcpy(temp,fileName);
+	strcat(temp,"_order.txt");
+	orderFile = fopen(temp,"r");
+	clear();
+	if(orderFile == NULL) printf("not file\n");
+	while(fscanf(orderFile,"%[^0-9] %d %d",name,&price,&count) != -1){
+		fgetc(orderFile);
+		if(name[0] == '.'){first = 1;if(amount !=0)printf("amount : %d\n\n",amount);amount =0;  continue;}
+		if(first == 1){first = 0; printf("----- %d -----\n",i++);}
+		printf("%-10s\t%-5d\t%2d\n",name,price,count);
+		amount += price*count;
+	}
+	if(amount !=0)printf("amount : %d\n\n",amount);
 }

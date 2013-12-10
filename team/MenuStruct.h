@@ -31,6 +31,7 @@ void updateIndex();
 
 void connectNode(Menu* pastNode, Menu* presentNode);
 void deleteMenu(int index);
+void printOrder(const char *fileName);
 
 Menu* getHeadNode();
 Menu* getTailNode();

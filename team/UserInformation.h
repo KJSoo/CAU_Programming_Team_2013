@@ -3,7 +3,7 @@
 //  Test
 //
 //  Created by JiSoo Kim on 13. 12. 8..
-//  Copyright (c) 2013ë…„ bluegg. All rights reserved.
+//  Copyright (c) 2013³â bluegg. All rights reserved.
 //
 
 #ifndef Test_UserInformation_h

@@ -12,7 +12,7 @@ void printMenu();
 void printOrderMenu();
 void printAllOrderMenu();
 int getAmountMoney();
-char name[_NAME_MAX_];
+static char name[_NAME_MAX_];
 static int p=1;
 
 
@@ -43,11 +43,13 @@ int main(){
                 break;
                 
 			case 2://주문확인
+				printOrder(name);
                 system("PAUSE");
                 system("cls");
                 break;
                 
             case 3://회원정보 확인
+				printAllUser();
 				printf("찾고자하시는 회원의 전화번호 뒷자리를 적으시오. :");
 				scanf("%s",&backnum);
 				findUser(backnum,0);
@@ -59,6 +61,7 @@ int main(){
 				printAllUser();
 				createNewUser();
 				refreshUserInformation();
+				clearBuffer();
                 system("PAUSE");
                 system("cls");
                 break;
@@ -122,8 +125,9 @@ void Permission(){
 int Order(){
     
 	int index,count,way=0,INDEX;
-	char answer,*backnum=0;
+	char answer,backnum[20];
 	int k=0;
+	int birth=0;
 	Menu *temp;
     
 	while(1){
@@ -150,23 +154,35 @@ int Order(){
 			case 1:// 가격을 보여준다음에 회원의 번호를 입력하여 포인트 적립해준다.만약 회원정보가 없을경우 0을 눌러주면 빠져나간다.
 				k = writeChainMenuList(name);
 				printf("%d원 입니다.",k);
-				printf("찾고자하시는 회원의 전화번호 뒷자리를 적으시오. :");
-				scanf("%s", &backnum);
-				if(backnum==0)
+				printf("찾고자하시는 회원의 전화번호 4자리혹은 생일(ex).19940101) 적으시오. :");
+				scanf("%s", backnum);
+				if(backnum[0]=='0')
 					break;
-				findUser(backnum,0);
+				if(backnum[0]=='.'){
+					backnum[0] = '0';
+					findUser(NULL,atoi(backnum));
+				}
+				else
+					findUser(backnum,0);
+				printAndScan("Index : ",&INDEX);
 				editUserPoint('+',INDEX,k*0.05);
+				refreshUserInformation();
 				break;
 		
 			case 2://회원번호를 입력하여 회원을 찾은다음에 포인트에서 깍는다.
-				printf("찾고자하시는 회원의 전화번호 뒷자리를 적으시오. :");
-				scanf("%s", &backnum);
-				findUser(backnum,0);
-				printf("적립하고자하시는 Index를 적으세요");
-				scanf("%d",INDEX);
 				k = writeChainMenuList(name);
 				printf("%d원 입니다.",k);
+				printf("찾고자하시는 회원의 전화번호 4자리혹은 생일(ex).19940101) 적으시오. :");
+				scanf("%s", backnum);
+				if(backnum[0]=='0')
+					break;
+				if(backnum[0]=='.'){
+					backnum[0] = '0';
+					findUser(NULL,atoi(backnum));
+				}
+				printAndScan("Index : ",&INDEX);
 				if(editUserPoint('-',INDEX,k) == 0)printf("\n fail");
+				refreshUserInformation();
 				break;
 			}
 			p++;
