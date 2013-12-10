@@ -89,7 +89,7 @@ void manageChain(){
     int select;
     refreshChain();
     printAllChainList();
-    printAndScan("1.chain add 2.chain permission edit 3. exit : ", &select);
+    printAndScan("1.chain add 2.chain permission edit 3. chain record : ", &select);
     switch (select) {
         case 1:
         {
@@ -116,6 +116,10 @@ void manageChain(){
             printAndScan("State (1.요청중 2.영업중 3.거절됨) : ", &state);
             setPermission(index, state);
             manageChain();
+        }
+            break;
+        case 3:{
+            
         }
             break;
         default:
@@ -146,4 +150,5 @@ void manageUser(){
         default:
             break;
     }
+    if(select != 0)manageUser();
 }
