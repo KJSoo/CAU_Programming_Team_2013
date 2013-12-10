@@ -3,7 +3,7 @@
 //  inging
 //
 //  Created by inging on 13. 11. 25..
-//  Copyright (c) 2013ë…„ inging. All rights reserved.
+//  Copyright (c) 2013³â inging. All rights reserved.
 //
 
 #ifndef Test_MenuStruct_h
@@ -43,5 +43,7 @@ void writeAllMenuList(const char *fileName);
 void writeOneNode(const char *fileName, int index);
 
 void addSellCountByIndex(int index, int count); // if you give menu index number and sell count, struct menu add sellcount.
+int getSellMoney();
 int writeChainMenuList(const char*fileName);
+void writeUserBuy(char *store, char *name,int point);
 #endif

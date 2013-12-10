@@ -15,7 +15,7 @@ int getAmountMoney();
 static char name[_NAME_MAX_];
 static int p=1;
 
-
+/*
 int main(){
 	int a=1;
 	char *backnum=0;
@@ -82,7 +82,7 @@ int main(){
 		}
 	}
 }
-
+*/
 void Permission(){
 	int i=0;
 	char YN;
@@ -152,7 +152,7 @@ int Order(){
 			
 			switch(way){
 			case 1:// 가격을 보여준다음에 회원의 번호를 입력하여 포인트 적립해준다.만약 회원정보가 없을경우 0을 눌러주면 빠져나간다.
-				k = writeChainMenuList(name);
+				k = getSellMoney();
 				printf("%d원 입니다.",k);
 				printf("찾고자하시는 회원의 전화번호 4자리혹은 생일(ex).19940101) 적으시오. :");
 				scanf("%s", backnum);
@@ -165,12 +165,14 @@ int Order(){
 				else
 					findUser(backnum,0);
 				printAndScan("Index : ",&INDEX);
-				editUserPoint('+',INDEX,k*0.05);
+				if (editUserPoint('+',INDEX,k*0.05) == 0);
+				else writeUserBuy(name,getUserByIndex(INDEX)->name,getUserByIndex(INDEX)->point);
 				refreshUserInformation();
+				k = writeChainMenuList(name);
 				break;
 		
 			case 2://회원번호를 입력하여 회원을 찾은다음에 포인트에서 깍는다.
-				k = writeChainMenuList(name);
+				k = getSellMoney();
 				printf("%d원 입니다.",k);
 				printf("찾고자하시는 회원의 전화번호 4자리혹은 생일(ex).19940101) 적으시오. :");
 				scanf("%s", backnum);
@@ -182,7 +184,9 @@ int Order(){
 				}
 				printAndScan("Index : ",&INDEX);
 				if(editUserPoint('-',INDEX,k) == 0)printf("\n fail");
+				else writeUserBuy(name,getUserByIndex(INDEX)->name,getUserByIndex(INDEX)->point);
 				refreshUserInformation();
+				k = writeChainMenuList(name);
 				break;
 			}
 			p++;

@@ -3,7 +3,7 @@
 //  inging
 //
 //  Created by inging on 13. 11. 25..
-//  Copyright (c) 2013ë…„ inging. All rights reserved.
+//  Copyright (c) 2013³â inging. All rights reserved.
 //
 
 #include <stdio.h>
@@ -11,6 +11,7 @@
 #include "MenuStruct.h"
 #include "ChainManage.h"
 #include "UserInformation.h"
+
 int showMainMenu();
 int selectMenu();
 void manageMenu();
@@ -22,7 +23,9 @@ int main(int argc, const char * argv[])
     init();
     while(showMainMenu());
 }
+
 int showMainMenu(){
+	clear();
     printf("1.Menu management 2.Chain management 3.User management: ");
     return selectMenu();
 }
@@ -113,13 +116,19 @@ void manageChain(){
             int index = 0;
             int state = 0;
             printAndScan("Index : ", &index);
-            printAndScan("State (1.ìš”ì²­ì¤‘ 2.ì˜ì—…ì¤‘ 3.ê±°ì ˆë¨) : ", &state);
+            printAndScan("State (1.¿äÃ»Áß 2.¿µ¾÷Áß 3.°ÅÀýµÊ) : ", &state);
             setPermission(index, state);
             manageChain();
         }
             break;
         case 3:{
-            
+            int index=0;
+			printAndScan("Index : ",&index);
+			clear();
+			printChainData(getIndexOfChainNode(index)->chainName);
+			printOrder(getIndexOfChainNode(index)->chainName);
+			pause();
+			manageChain();
         }
             break;
         default:
@@ -128,23 +137,37 @@ void manageChain(){
 }
 void manageUser(){
     int select;
-    printAndScan("1.User Add 2.User Delete 3.User List 4.Find User : ",&select);
+	clear();
+    printAndScan("1.User Add 2.User Delete 3.User List 4.Buy record 5.Find User : ",&select);
     switch (select) {
         case 1:
             createNewUser();
             break;
         case 3:
             printAllUser();
+			pause();
             break;
-        case 4:
+		case 4:
+		{
+			int index;
+			printAllUser();
+			printAndScan("index : ",&index);
+			if(getUserByIndex(index) != NULL)
+				showUserRecord(getUserByIndex(index)->name);
+			else printf("index error\n");
+		}
+		pause();
+		break;
+        case 5:
         {
             int birthDay=0;
             char number[10]={0};
-            printf("phone number (not birthday .): ");
+            printf("phone number (not number .): ");
             scanf("%s",number);
             if(number[0] == '.') number[0] = '\0';
             printf("birth day (not birthday 0): ");
             scanf("%d",&birthDay);
+			clear();
             findUser(number, birthDay);
         }
         default:

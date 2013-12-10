@@ -3,7 +3,7 @@
 //  inging
 //
 //  Created by inging on 13. 11. 25..
-//  Copyright (c) 2013ë…„ inging. All rights reserved.
+//  Copyright (c) 2013³â inging. All rights reserved.
 //
 
 #include "MenuStruct.h"
@@ -130,28 +130,28 @@ Menu* getTailNode(){
 Menu* getIndexOfNode(int index){
     if(head == NULL) return NULL;
     else{
-        Menu *head = getHeadNode(); // head ë¶€í„° tail ê¹Œì§€ ìˆœì°¨ì  ìˆœíšŒë¥¼ í•©ë‹ˆë‹¤.
+        Menu *head = getHeadNode(); // head ºÎÅÍ tail ±îÁö ¼øÂ÷Àû ¼øÈ¸¸¦ ÇÕ´Ï´Ù.
         while(head != NULL){
             if(head -> index == index) return head;
             else head = head -> next;
         }
-        return head; // index ì™€ ì¼ì¹˜í•˜ëŠ” ê°’ì´ ì—†ì„ê²½ìš° NULL ì„ ë¦¬í„´í•©ë‹ˆë‹¤.
+        return head; // index ¿Í ÀÏÄ¡ÇÏ´Â °ªÀÌ ¾øÀ»°æ¿ì NULL À» ¸®ÅÏÇÕ´Ï´Ù.
     }
 }
 
 void printAllMenuList(){
     Menu *temp = getHeadNode();
     clear();
-    if( temp == NULL) printf("ë©”ë‰´ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
+    if( temp == NULL) printf("¸Ş´º°¡ ¾ø½À´Ï´Ù.\n");
     else{
-        printf("â”‚â”€â”€â”€â”€â”€â”€â”€â”‚â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”‚â”€â”€â”€â”€â”€â”€â”€â”‚\n");
-        printf("â”‚ Index â”‚ MenuName\t\t\t â”‚ Price â”‚\n");
-        printf("â”‚â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”¼\n");
+        printf("¦¢¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¢¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¢¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¢\n");
+        printf("¦¢ Index ¦¢ MenuName\t\t\t ¦¢ Price ¦¢\n");
+        printf("¦¢¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦«¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦«¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦«\n");
         while (temp != NULL) {
-            printf("â”‚%4d   â”‚ %-31sâ”‚ %5d â”‚\n",temp -> index, temp -> menuName, temp -> price);
+            printf("¦¢%4d   ¦¢ %-31s¦¢ %5d ¦¢\n",temp -> index, temp -> menuName, temp -> price);
             temp = temp->next;
         }
-        printf("â”‚â”€â”€â”€â”€â”€â”€â”€â”‚â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”‚â”€â”€â”€â”€â”€â”€â”€â”‚\n");
+        printf("¦¢¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¢¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¢¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¢\n");
     }
 }
 
@@ -213,8 +213,7 @@ void printOrder(const char *fileName){
 	strcpy(temp,fileName);
 	strcat(temp,"_order.txt");
 	orderFile = fopen(temp,"r");
-	clear();
-	if(orderFile == NULL) printf("not file\n");
+	if(orderFile == NULL) {printf("not record\n"); return;}
 	while(fscanf(orderFile,"%[^0-9] %d %d",name,&price,&count) != -1){
 		fgetc(orderFile);
 		if(name[0] == '.'){first = 1;if(amount !=0)printf("amount : %d\n\n",amount);amount =0;  continue;}
@@ -223,4 +222,35 @@ void printOrder(const char *fileName){
 		amount += price*count;
 	}
 	if(amount !=0)printf("amount : %d\n\n",amount);
+}
+void writeUserBuy(char *store, char *name,int point){
+	FILE *user;
+	char temp[50] = "user\\";
+	int amount=0;
+	strcat(temp,name);
+	strcat(temp,".txt");
+	user = fopen(temp,"a");
+	head = getHeadNode();
+	fprintf(user,". 0 0\n");
+    while (head != NULL) {
+		if(head->sellCount > 0)
+			fprintf(user,"%s %d %d\n",head->menuName,head->price,head->sellCount);
+		amount += head->price * head->sellCount;
+		if(head -> next == NULL) break;
+        head = head->next;
+    }
+	fprintf(user,"- 0 0\n");
+	fprintf(user,"%d %d",amount,point);
+	fclose(user);
+}
+int getSellMoney(){
+	int amount = 0;
+    head = getHeadNode();
+    while (head != NULL) {
+		amount += (head->price * head->sellCount);
+		if(head -> next == NULL) break;
+        head = head->next;
+    }
+
+	return amount;
 }

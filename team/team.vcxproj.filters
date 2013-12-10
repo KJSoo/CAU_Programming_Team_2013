@@ -15,33 +15,36 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MenuStruct.c">
+    <ClCompile Include="UserInformation.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="BaseFunction.c">
+    <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuStruct.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="ChainManage.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="bruanch.c">
+    <ClCompile Include="BaseFunction.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="UserInformation.c">
+    <ClCompile Include="bruanch.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChainManage.h">
+    <ClInclude Include="UserInformation.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MenuStruct.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="BaseFunction.h">
+    <ClInclude Include="ChainManage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="UserInformation.h">
+    <ClInclude Include="BaseFunction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

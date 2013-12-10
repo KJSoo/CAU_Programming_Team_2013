@@ -32,4 +32,5 @@ int editUserPoint(char variation, int index ,int point);
 void findUser(char *number,int birthDay);
 void writeAllUser();
 void createNewUser();
+void showUserRecord(const char *name);
 #endif

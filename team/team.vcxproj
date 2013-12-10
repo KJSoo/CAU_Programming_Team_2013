@@ -79,6 +79,7 @@
     <ClCompile Include="BaseFunction.c" />
     <ClCompile Include="bruanch.c" />
     <ClCompile Include="ChainManage.c" />
+    <ClCompile Include="main.c" />
     <ClCompile Include="MenuStruct.c" />
     <ClCompile Include="UserInformation.c" />
   </ItemGroup>

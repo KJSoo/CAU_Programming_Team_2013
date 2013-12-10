@@ -158,3 +158,29 @@ void writeAllChainList(){
 void refreshChain(){
     initChainStrut(_DEFAULT_CHAIN_FILE_);
 }
+
+void printChainData(const char *name){
+	char temp[50];
+	FILE *pFile;
+	char tempName[_NAME_MAX_*2] = {0};
+    int tempPrice;
+	int tempCount;
+	int i = 1;
+	strcpy(temp,name);
+	strcat(temp,".txt");
+	pFile = fopen(temp,"r");
+	if(pFile == NULL){
+		printf("not record\n");
+		return;
+	}
+
+	printf("  Index 弛 MenuName\t弛Price 弛Order\n");
+	printf("式式式式托式式式式式式式托式式式托式式式\n");
+    while(fscanf(pFile, "%[^0-9] %d %d",tempName,&tempPrice,&tempCount) != -1){
+        fgetc(pFile);
+        removeSpace(tempName);
+		printf("    %2d  弛 %-12s\t弛%d\t弛%d\n",i++, tempName, tempPrice,tempCount);
+    }
+	printf("式式式式扛式式式式式式式扛式式式扛式式式\n\n");
+    fclose(pFile);
+}

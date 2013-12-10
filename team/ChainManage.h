@@ -3,7 +3,7 @@
 //  inging
 //
 //  Created by inging on 13. 11. 25..
-//  Copyright (c) 2013ë…„ inging. All rights reserved.
+//  Copyright (c) 2013³â inging. All rights reserved.
 //
 
 #ifndef Test_ChainManage_h
@@ -33,4 +33,5 @@ void printAllChainList();
 void requestChain(char *string);
 void writeAllChainList();
 void refreshChain();
+void printChainData(const char *name);
 #endif

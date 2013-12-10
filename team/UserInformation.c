@@ -156,3 +156,26 @@ void writeAllUser(){
     }
     fclose(pFile);
 }
+void showUserRecord(const char *name){
+	FILE *user;
+	char temp[50] = "user\\";
+	int price,count,first, i = 1;
+	strcat(temp,name);
+	strcat(temp,".txt");
+	user = fopen(temp,"r");
+	if(user == NULL) {printf("not record\n"); return;}
+	while(fscanf(user,"%[^0-9] %d %d",name,&price,&count) != -1){
+		fgetc(user);
+		if(name[0] == '.'){first = 1;continue;}
+		else if(name[0] == '-'){
+			int amount,point;
+			fscanf(user,"%d %d",&amount,&point);
+			fgetc(user);
+			printf("buy : %d\tpoint : %d\n\n",amount,point);
+			continue;
+		}
+		if(first == 1){first = 0; printf("----- %d -----\n",i++);}
+		printf("%-10s\t%-5d\t%2d\n",name,price,count);
+	}
+	fclose(user);
+}
