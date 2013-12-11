@@ -1,10 +1,12 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "BaseFunction.h"
 #include "MenuStruct.h"
 #include "ChainManage.h"
 #include "UserInformation.h"
 
+void removeData();
 void Permission();
 int Order();
 void OrderState();
@@ -15,14 +17,14 @@ int getAmountMoney();
 static char name[_NAME_MAX_];
 static int p=1;
 
-/*
 int main(){
 	int a=1;
 	char *backnum=0;
 	int allcost=0;
 	init();
 	Permission();
-	
+	removeData();
+
 	while(a){
 		printf("안녕하세요.  커피니 %s점입니다.\n",name);
 		printf("	┌─────────┐\n");
@@ -49,13 +51,23 @@ int main(){
                 break;
                 
             case 3://회원정보 확인
+			{
+				char backnum[20];
 				printAllUser();
-				printf("찾고자하시는 회원의 전화번호 뒷자리를 적으시오. :");
-				scanf("%s",&backnum);
-				findUser(backnum,0);
+				printf("찾고자하시는 회원의 전화번호 4자리혹은 생일(ex).19940101) 적으시오. :");
+				scanf("%s", backnum);
+				if(backnum[0]==';')
+					break;
+				if(backnum[0]=='.'){
+					backnum[0] = '0';
+					findUser(NULL,atoi(backnum));
+				}
+				else
+					findUser(backnum,0);
 				system("PAUSE");
                 system("cls");
-                break;
+			}
+				break;
 				
 			case 4://회원가입
 				printAllUser();
@@ -75,14 +87,34 @@ int main(){
                 break;
             
 			case 0:
-                a=-1;
-                system("PAUSE");
-                system("cls");
+				{
+					char temp[50] = "copy ";
+					char buffer[20];
+					time_t timer;
+					struct tm *t;
+
+					timer = time(NULL); 
+					t = localtime(&timer);
+
+					strcat(temp, name);
+					strcat(temp,"_order");
+					strcat(temp,".txt chainlog\\");
+					strcat(temp,name);
+					itoa(t->tm_mday,buffer,10);
+					strcat(temp,buffer);
+					strcat(temp,"_");
+					itoa(time(NULL),buffer,10);
+					strcat(temp,buffer);
+					strcat(temp,".txt");
+					system(temp);
+					a=-1;
+					system("PAUSE");
+					system("cls");
+				}
                 break;
 		}
 	}
 }
-*/
 void Permission(){
 	int i=0;
 	char YN;
@@ -156,18 +188,18 @@ int Order(){
 				printf("%d원 입니다.",k);
 				printf("찾고자하시는 회원의 전화번호 4자리혹은 생일(ex).19940101) 적으시오. :");
 				scanf("%s", backnum);
-				if(backnum[0]=='0')
-					break;
-				if(backnum[0]=='.'){
-					backnum[0] = '0';
-					findUser(NULL,atoi(backnum));
+				if(backnum[0]!=';'){
+					if(backnum[0]=='.'){
+						backnum[0] = '0';
+						findUser(NULL,atoi(backnum));
+					}
+					else
+						findUser(backnum,0);
+					printAndScan("Index : ",&INDEX);
+					if (editUserPoint('+',INDEX,k*0.05) == 0);
+					else writeUserBuy(name,getUserByIndex(INDEX)->name,getUserByIndex(INDEX)->point);
+					refreshUserInformation();
 				}
-				else
-					findUser(backnum,0);
-				printAndScan("Index : ",&INDEX);
-				if (editUserPoint('+',INDEX,k*0.05) == 0);
-				else writeUserBuy(name,getUserByIndex(INDEX)->name,getUserByIndex(INDEX)->point);
-				refreshUserInformation();
 				k = writeChainMenuList(name);
 				break;
 		
@@ -182,8 +214,12 @@ int Order(){
 					backnum[0] = '0';
 					findUser(NULL,atoi(backnum));
 				}
+				findUser(backnum,0);
 				printAndScan("Index : ",&INDEX);
-				if(editUserPoint('-',INDEX,k) == 0)printf("\n fail");
+				if(editUserPoint('-',INDEX,k) == 0){
+					printf("\n fail");
+					return 0;
+				}
 				else writeUserBuy(name,getUserByIndex(INDEX)->name,getUserByIndex(INDEX)->point);
 				refreshUserInformation();
 				k = writeChainMenuList(name);
@@ -247,4 +283,13 @@ void printAllOrderMenu(){
 		}
 	printf("────┴───────┴───┴───\n");
 	}
+}
+void removeData(){
+	char temp[50] = "del ";
+	char buffer[20];
+
+	strcat(temp, name);
+	strcat(temp,"_order.txt");
+	system(temp);
+	clear();
 }

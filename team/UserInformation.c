@@ -56,12 +56,15 @@ void createNewUser(){
     char phoneNumber[20];
     int birthDay;
 	printf("------ new user ------\n");
-    printf("이름 : ");
+    printf("이름(exit 0) : ");
     scanf("%s",name);
-    printf("번호 : ");
+	if(name[0] == '0') return;
+    printf("번호(exit 0) : ");
     scanf("%s",phoneNumber);
-    printf("생일 : ");
+	if(phoneNumber == 0) return;
+    printf("생일(exit 0) : ");
     scanf("%d",&birthDay);
+	if(birthDay== 0) return;
     createUserStruct(name, phoneNumber, birthDay, 0);
 }
 void connectUserNode(UserInformation* prevNode, UserInformation* presentNode){

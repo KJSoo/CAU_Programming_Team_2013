@@ -222,6 +222,7 @@ void printOrder(const char *fileName){
 		amount += price*count;
 	}
 	if(amount !=0)printf("amount : %d\n\n",amount);
+	fclose(orderFile);
 }
 void writeUserBuy(char *store, char *name,int point){
 	FILE *user;
